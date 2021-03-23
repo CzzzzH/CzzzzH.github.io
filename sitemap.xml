@@ -2,10 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://czzzzh.github.io/categories/</loc>
+    <loc>http://czzzzh.github.io/tags/computer-graphics/</loc>
+    <lastmod>2020-06-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://czzzzh.github.io/</loc>
+    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://czzzzh.github.io/p/photorealistic-renderer/</loc>
+    <lastmod>2020-06-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://czzzzh.github.io/tags/photorealistic-rendering/</loc>
+    <lastmod>2020-06-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://czzzzh.github.io/post/</loc>
+    <lastmod>2020-06-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://czzzzh.github.io/tags/sppm/</loc>
+    <lastmod>2020-06-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://czzzzh.github.io/tags/</loc>
+    <lastmod>2020-06-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://czzzzh.github.io/archives/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://czzzzh.github.io/page/</loc>
+    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://czzzzh.github.io/about/</loc>
+    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://czzzzh.github.io/categories/</loc>
+  </url><url>
+    <loc>http://czzzzh.github.io/search/</loc>
   </url>
 </urlset>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='A photorealistic renderer based on SPPM'><title>Photorealistic Renderer</title>
+
+<link rel='canonical' href='http://czzzzh.github.io/p/photorealistic-renderer/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Photorealistic Renderer'>
+<meta property='og:description' content='A photorealistic renderer based on SPPM'>
+<meta property='og:url' content='http://czzzzh.github.io/p/photorealistic-renderer/'>
+<meta property='og:site_name' content='MorPhLing&#39;s Space'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='SPPM' /><meta property='article:tag' content='Photorealistic Rendering' /><meta property='article:tag' content='Computer Graphics' /><meta property='article:published_time' content='2020-06-21T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2020-06-21T00:00:00&#43;00:00'/><meta property='og:image' content='http://czzzzh.github.io/p/photorealistic-renderer/result-20.bmp' />
+<meta name="twitter:title" content="Photorealistic Renderer">
+<meta name="twitter:description" content="A photorealistic renderer based on SPPM"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://czzzzh.github.io/p/photorealistic-renderer/result-20.bmp' />
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="http://czzzzh.github.io/">MorPhLing&#39;s Space</a></h1>
+        <h2 class="site-description">Free to code</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="http://czzzzh.github.io/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/photorealistic-renderer/">
+                <img src="/p/photorealistic-renderer/result-20_hucca6c26b05c849769d740e830a04192a_37748790_800x0_resize_box.bmp"
+                        srcset="/p/photorealistic-renderer/result-20_hucca6c26b05c849769d740e830a04192a_37748790_800x0_resize_box.bmp 800w, /p/photorealistic-renderer/result-20_hucca6c26b05c849769d740e830a04192a_37748790_1600x0_resize_box.bmp 1600w"
+                        width="800" 
+                        height="600" 
+                        loading="lazy"
+                        alt="Featured image of post Photorealistic Renderer" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/photorealistic-renderer/">Photorealistic Renderer</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        A photorealistic renderer based on SPPM
+    </h3>
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Jun 21, 2020</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <h3 id="introduction">Introduction</h3>
+<p>This project implements a C++ program for realistic scene rendering. The rendering algorithm is based on random gradual photon mapping (SPPM). The renderer can render mesh with textures and parametric surfaces (intersections are solved by iterative analytic equations), and the depth of field can be achieved by simulating focal length.</p>
+<h3 id="algorithms">Algorithms</h3>
+<p>I use two KD-Tree and a quadtree to accelerate the process of rendering. The former is used for  mesh intersection acceleration, and the latter is used for parametric surfaces intersection acceleration. I also used OpenMP for trivial parallel computing acceleration.</p>
+<p>The parametric surfaces are calculated with Newton iterative method, the quadtree is important because the convergence of this method depends much on the initial value, so the ray need first intersect the bounding box of the parametric surface, which is built on quadtree.</p>
+<p>The rendering of texture is implemented by two methods. The first method is matching the pixels of the picture to a single triangular surface, which is simple but just works with simple objects (e.g. walls). The second method is carried out by  UV unfolding, by which every vertex has its color, so the color of every points on the surface can be calculated by the interpolation on the center of gravity.</p>
+<p>Depth of field is easy to implement as the expansion of a function. Change the source point from the origin to a disk (aperture) and random sample on it,  then make the light pass the focal point before it ejects. After that operation, multiple points outside the focal plane will correspond to one pixel, and there is an effect of depth of field.</p>
+<h3 id="result">Result</h3>
+<p>I have rendered two scenes.</p>
+<p>The first scene depicts a palace with a big mirror, where a rabbit and two dragons are doing something with two crystal balls. (It is like a game scene in my mind , though I have not actually</p>
+<p>considered about the story about it  :D)</p>
+<h3 id="result-20result-20bmp"><figure style="flex-grow: 133; flex-basis: 320px">
+		<a href="/p/photorealistic-renderer/result-20.bmp" data-size="4096x3072"><img src="/p/photorealistic-renderer/result-20.bmp"
+				srcset="/p/photorealistic-renderer/result-20_hucca6c26b05c849769d740e830a04192a_37748790_480x0_resize_box.bmp 480w, /p/photorealistic-renderer/result-20_hucca6c26b05c849769d740e830a04192a_37748790_1024x0_resize_box.bmp 1024w"
+				width="4096"
+				height="3072"
+				loading="lazy"
+				alt="result-20">
+		</a>
+		
+		<figcaption>result-20</figcaption>
+		
+	</figure></h3>
+<p>The second scene is indeed a test of the parametric surface and the simulation of depth of field, which is a lot trivial.</p>
+<p>![Room(Small Aperture)](Room(Small Aperture).bmp)</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/sppm/">SPPM</a>
+        
+            <a href="/tags/photorealistic-rendering/">Photorealistic Rendering</a>
+        
+            <a href="/tags/computer-graphics/">Computer Graphics</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 MorPhLing&#39;s Space
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

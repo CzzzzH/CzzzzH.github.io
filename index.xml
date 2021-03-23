@@ -1,10 +1,44 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Example Site</title>
+        <title>MorPhLing&#39;s Space</title>
         <link>http://czzzzh.github.io/</link>
-        <description>Recent content on Example Site</description>
+        <description>Recent content on MorPhLing&#39;s Space</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language><atom:link href="http://czzzzh.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <language>en-us</language>
+        <lastBuildDate>Sun, 21 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://czzzzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Photorealistic Renderer</title>
+        <link>http://czzzzh.github.io/p/photorealistic-renderer/</link>
+        <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
+        
+        <guid>http://czzzzh.github.io/p/photorealistic-renderer/</guid>
+        <description>&lt;img src="http://czzzzh.github.io/p/photorealistic-renderer/result-20.bmp" alt="Featured image of post Photorealistic Renderer" /&gt;&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;This project implements a C++ program for realistic scene rendering. The rendering algorithm is based on random gradual photon mapping (SPPM). The renderer can render mesh with textures and parametric surfaces (intersections are solved by iterative analytic equations), and the depth of field can be achieved by simulating focal length.&lt;/p&gt;
+&lt;h3 id=&#34;algorithms&#34;&gt;Algorithms&lt;/h3&gt;
+&lt;p&gt;I use two KD-Tree and a quadtree to accelerate the process of rendering. The former is used for  mesh intersection acceleration, and the latter is used for parametric surfaces intersection acceleration. I also used OpenMP for trivial parallel computing acceleration.&lt;/p&gt;
+&lt;p&gt;The parametric surfaces are calculated with Newton iterative method, the quadtree is important because the convergence of this method depends much on the initial value, so the ray need first intersect the bounding box of the parametric surface, which is built on quadtree.&lt;/p&gt;
+&lt;p&gt;The rendering of texture is implemented by two methods. The first method is matching the pixels of the picture to a single triangular surface, which is simple but just works with simple objects (e.g. walls). The second method is carried out by  UV unfolding, by which every vertex has its color, so the color of every points on the surface can be calculated by the interpolation on the center of gravity.&lt;/p&gt;
+&lt;p&gt;Depth of field is easy to implement as the expansion of a function. Change the source point from the origin to a disk (aperture) and random sample on it,  then make the light pass the focal point before it ejects. After that operation, multiple points outside the focal plane will correspond to one pixel, and there is an effect of depth of field.&lt;/p&gt;
+&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
+&lt;p&gt;I have rendered two scenes.&lt;/p&gt;
+&lt;p&gt;The first scene depicts a palace with a big mirror, where a rabbit and two dragons are doing something with two crystal balls. (It is like a game scene in my mind , though I have not actually&lt;/p&gt;
+&lt;p&gt;considered about the story about it  :D)&lt;/p&gt;
+&lt;h3 id=&#34;result-20result-20bmp&#34;&gt;&lt;figure style=&#34;flex-grow: 133; flex-basis: 320px&#34;&gt;
+		&lt;a href=&#34;http://czzzzh.github.io/p/photorealistic-renderer/result-20.bmp&#34; data-size=&#34;4096x3072&#34;&gt;&lt;img src=&#34;http://czzzzh.github.io/p/photorealistic-renderer/result-20.bmp&#34;
+				srcset=&#34;http://czzzzh.github.io/p/photorealistic-renderer/result-20_hucca6c26b05c849769d740e830a04192a_37748790_480x0_resize_box.bmp 480w, http://czzzzh.github.io/p/photorealistic-renderer/result-20_hucca6c26b05c849769d740e830a04192a_37748790_1024x0_resize_box.bmp 1024w&#34;
+				width=&#34;4096&#34;
+				height=&#34;3072&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;result-20&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;result-20&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/h3&gt;
+&lt;p&gt;The second scene is indeed a test of the parametric surface and the simulation of depth of field, which is a lot trivial.&lt;/p&gt;
+&lt;p&gt;![Room(Small Aperture)](Room(Small Aperture).bmp)&lt;/p&gt;
+</description>
+        </item>
+        
     </channel>
 </rss>
