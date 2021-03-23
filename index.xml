@@ -6,13 +6,39 @@
         <description>Recent content on MorPhLing&#39;s Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 21 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://czzzzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 01 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://czzzzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>ETSHelper</title>
+        <link>http://czzzzh.github.io/p/etshelper/</link>
+        <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
+        
+        <guid>http://czzzzh.github.io/p/etshelper/</guid>
+        <description>&lt;img src="http://czzzzh.github.io/p/etshelper/demo.jpg" alt="Featured image of post ETSHelper" /&gt;&lt;p&gt;See &lt;a href=&#34;https://github.com/CzzzzH/ETSHelper&#34;&gt;https://github.com/CzzzzH/ETSHelper&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;The bot is based on &lt;a class=&#34;link&#34; href=&#34;https://github.com/howmanybots/onebot&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Nonebot&lt;/a&gt; (A asynchronous framework of QQ chatbot) and &lt;a class=&#34;link&#34; href=&#34;https://github.com/Jittor/Jittor&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jittor&lt;/a&gt; (A Just-in-time(JIT) deep learning framework). The former provides communication services for the bot , and the latter helps crack captcha on the website.&lt;/p&gt;
+&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;You need construct dataset with captcha data on the official test registration website and &lt;a class=&#34;link&#34; href=&#34;https://cg.cs.tsinghua.edu.cn/jittor/download/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;install Jittor&lt;/a&gt;. Then train the model.&lt;/li&gt;
+&lt;li&gt;Start to get GRE/TOEFL test seats status with gre_seat.py / toefl_seat.py. Selenium and mysql is required in this process..&lt;/li&gt;
+&lt;li&gt;Deploy your own QQ chatbot with software supported by Nonebot.  (e.g. &lt;a class=&#34;link&#34; href=&#34;https://github.com/mamoe/mirai&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Mirai&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Run bot.py to start the query service.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;demo&#34;&gt;Demo&lt;/h3&gt;
+&lt;p&gt;You can add the demo bot (QQ:2758720749) for instant querying service.&lt;/p&gt;
+&lt;h5 id=&#34;this-bot-is-currently-unavailable-in-terms-of-the-change-of-the-ets-official-website-so-the-bot-and-this-repository-is-waiting-for-update&#34;&gt;This bot is currently unavailable in terms of the change of the ETS official website, so the bot and this repository is waiting for update.&lt;/h5&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Photorealistic Renderer</title>
         <link>http://czzzzh.github.io/p/photorealistic-renderer/</link>
         <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
         
         <guid>http://czzzzh.github.io/p/photorealistic-renderer/</guid>
-        <description>&lt;img src="http://czzzzh.github.io/p/photorealistic-renderer/result-20.bmp" alt="Featured image of post Photorealistic Renderer" /&gt;&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+        <description>&lt;img src="http://czzzzh.github.io/p/photorealistic-renderer/1.bmp" alt="Featured image of post Photorealistic Renderer" /&gt;&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
 &lt;p&gt;This project implements a C++ program for realistic scene rendering. The rendering algorithm is based on random gradual photon mapping (SPPM). The renderer can render mesh with textures and parametric surfaces (intersections are solved by iterative analytic equations), and the depth of field can be achieved by simulating focal length.&lt;/p&gt;
 &lt;h3 id=&#34;algorithms&#34;&gt;Algorithms&lt;/h3&gt;
 &lt;p&gt;I use two KD-Tree and a quadtree to accelerate the process of rendering. The former is used for  mesh intersection acceleration, and the latter is used for parametric surfaces intersection acceleration. I also used OpenMP for trivial parallel computing acceleration.&lt;/p&gt;
@@ -23,9 +49,9 @@
 &lt;p&gt;I have rendered two scenes.&lt;/p&gt;
 &lt;p&gt;The first scene depicts a palace with a big mirror, where a rabbit and two dragons are doing something with two crystal balls. (It is like a game scene in my mind , though I have not actually&lt;/p&gt;
 &lt;p&gt;considered about the story about it  :D)&lt;/p&gt;
-&lt;h3 id=&#34;result-20result-20bmp&#34;&gt;&lt;figure style=&#34;flex-grow: 133; flex-basis: 320px&#34;&gt;
-		&lt;a href=&#34;http://czzzzh.github.io/p/photorealistic-renderer/result-20.bmp&#34; data-size=&#34;4096x3072&#34;&gt;&lt;img src=&#34;http://czzzzh.github.io/p/photorealistic-renderer/result-20.bmp&#34;
-				srcset=&#34;http://czzzzh.github.io/p/photorealistic-renderer/result-20_hucca6c26b05c849769d740e830a04192a_37748790_480x0_resize_box.bmp 480w, http://czzzzh.github.io/p/photorealistic-renderer/result-20_hucca6c26b05c849769d740e830a04192a_37748790_1024x0_resize_box.bmp 1024w&#34;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 133; flex-basis: 320px&#34;&gt;
+		&lt;a href=&#34;http://czzzzh.github.io/p/photorealistic-renderer/1.bmp&#34; data-size=&#34;4096x3072&#34;&gt;&lt;img src=&#34;http://czzzzh.github.io/p/photorealistic-renderer/1.bmp&#34;
+				srcset=&#34;http://czzzzh.github.io/p/photorealistic-renderer/1_hucca6c26b05c849769d740e830a04192a_37748790_480x0_resize_box.bmp 480w, http://czzzzh.github.io/p/photorealistic-renderer/1_hucca6c26b05c849769d740e830a04192a_37748790_1024x0_resize_box.bmp 1024w&#34;
 				width=&#34;4096&#34;
 				height=&#34;3072&#34;
 				loading=&#34;lazy&#34;
@@ -34,9 +60,114 @@
 		
 		&lt;figcaption&gt;result-20&lt;/figcaption&gt;
 		
-	&lt;/figure&gt;&lt;/h3&gt;
+	&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;The second scene is indeed a test of the parametric surface and the simulation of depth of field, which is a lot trivial.&lt;/p&gt;
-&lt;p&gt;![Room(Small Aperture)](Room(Small Aperture).bmp)&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 133; flex-basis: 320px&#34;&gt;
+		&lt;a href=&#34;http://czzzzh.github.io/p/photorealistic-renderer/2.bmp&#34; data-size=&#34;2048x1536&#34;&gt;&lt;img src=&#34;http://czzzzh.github.io/p/photorealistic-renderer/2.bmp&#34;
+				srcset=&#34;http://czzzzh.github.io/p/photorealistic-renderer/2_hu903ccaa9d116ae8a86bf3d9a88a02d38_9437238_480x0_resize_box.bmp 480w, http://czzzzh.github.io/p/photorealistic-renderer/2_hu903ccaa9d116ae8a86bf3d9a88a02d38_9437238_1024x0_resize_box.bmp 1024w&#34;
+				width=&#34;2048&#34;
+				height=&#34;1536&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;Room(Small Aperture)&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;Room(Small Aperture)&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>TuneStory</title>
+        <link>http://czzzzh.github.io/p/tunestory/</link>
+        <pubDate>Fri, 12 Apr 2019 00:00:00 +0000</pubDate>
+        
+        <guid>http://czzzzh.github.io/p/tunestory/</guid>
+        <description>&lt;img src="http://czzzzh.github.io/p/tunestory/2.jpg" alt="Featured image of post TuneStory" /&gt;&lt;p&gt;See &lt;a href=&#34;https://github.com/CzzzzH/TuneStory&#34;&gt;https://github.com/CzzzzH/TuneStory&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;This project is a tiny Music Game developped by &lt;strong&gt;Qt&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The game only runs at &lt;strong&gt;1920 * 1080&lt;/strong&gt; resolution and the platform of Windows.&lt;/p&gt;
+&lt;p&gt;You can make your own song charts in this game, and the guide is included in the &lt;strong&gt;制谱指南.txt&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Currently the game server is down, so the user system and leaderboards are not available now. You can still play with the single game.&lt;/p&gt;
+&lt;h3 id=&#34;screenshots&#34;&gt;Screenshots&lt;/h3&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 177; flex-basis: 426px&#34;&gt;
+		&lt;a href=&#34;http://czzzzh.github.io/p/tunestory/1.jpg&#34; data-size=&#34;1920x1080&#34;&gt;&lt;img src=&#34;http://czzzzh.github.io/p/tunestory/1.jpg&#34;
+				srcset=&#34;http://czzzzh.github.io/p/tunestory/1_huffd66d2a0c3a262288a1354827121aeb_181735_480x0_resize_q75_box.jpg 480w, http://czzzzh.github.io/p/tunestory/1_huffd66d2a0c3a262288a1354827121aeb_181735_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;1920&#34;
+				height=&#34;1080&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;1&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;1&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 177; flex-basis: 426px&#34;&gt;
+		&lt;a href=&#34;http://czzzzh.github.io/p/tunestory/2.jpg&#34; data-size=&#34;1920x1080&#34;&gt;&lt;img src=&#34;http://czzzzh.github.io/p/tunestory/2.jpg&#34;
+				srcset=&#34;http://czzzzh.github.io/p/tunestory/2_hu158058fb334e1ce6ac5642621169d58e_72515_480x0_resize_q75_box.jpg 480w, http://czzzzh.github.io/p/tunestory/2_hu158058fb334e1ce6ac5642621169d58e_72515_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;1920&#34;
+				height=&#34;1080&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;2&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;2&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 177; flex-basis: 426px&#34;&gt;
+		&lt;a href=&#34;http://czzzzh.github.io/p/tunestory/3.jpg&#34; data-size=&#34;1920x1080&#34;&gt;&lt;img src=&#34;http://czzzzh.github.io/p/tunestory/3.jpg&#34;
+				srcset=&#34;http://czzzzh.github.io/p/tunestory/3_hu35b012c681cf9bbb8c6a7219bfc7b0be_117813_480x0_resize_q75_box.jpg 480w, http://czzzzh.github.io/p/tunestory/3_hu35b012c681cf9bbb8c6a7219bfc7b0be_117813_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;1920&#34;
+				height=&#34;1080&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;3&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;3&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 177; flex-basis: 426px&#34;&gt;
+		&lt;a href=&#34;http://czzzzh.github.io/p/tunestory/4.jpg&#34; data-size=&#34;1920x1080&#34;&gt;&lt;img src=&#34;http://czzzzh.github.io/p/tunestory/4.jpg&#34;
+				srcset=&#34;http://czzzzh.github.io/p/tunestory/4_hu74cc384dede4adc43353fa565027b4c0_204294_480x0_resize_q75_box.jpg 480w, http://czzzzh.github.io/p/tunestory/4_hu74cc384dede4adc43353fa565027b4c0_204294_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;1920&#34;
+				height=&#34;1080&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;4&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;4&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 177; flex-basis: 426px&#34;&gt;
+		&lt;a href=&#34;http://czzzzh.github.io/p/tunestory/5.jpg&#34; data-size=&#34;1920x1080&#34;&gt;&lt;img src=&#34;http://czzzzh.github.io/p/tunestory/5.jpg&#34;
+				srcset=&#34;http://czzzzh.github.io/p/tunestory/5_hue871b36c6017d640de5fe19534a30c6a_261030_480x0_resize_q75_box.jpg 480w, http://czzzzh.github.io/p/tunestory/5_hue871b36c6017d640de5fe19534a30c6a_261030_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;1920&#34;
+				height=&#34;1080&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;5&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;5&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 177; flex-basis: 426px&#34;&gt;
+		&lt;a href=&#34;http://czzzzh.github.io/p/tunestory/6.jpg&#34; data-size=&#34;1920x1080&#34;&gt;&lt;img src=&#34;http://czzzzh.github.io/p/tunestory/6.jpg&#34;
+				srcset=&#34;http://czzzzh.github.io/p/tunestory/6_hua4d3c7593650ef0569b9d46592744355_141237_480x0_resize_q75_box.jpg 480w, http://czzzzh.github.io/p/tunestory/6_hua4d3c7593650ef0569b9d46592744355_141237_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;1920&#34;
+				height=&#34;1080&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;6&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;6&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&#34;trial-play-video&#34;&gt;Trial Play Video&lt;/h3&gt;
+&lt;p&gt;You can check it on bilibili:&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1xb411v7Ko&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;[TuneStory] FUJIN Rumble Hard lv.08 Trial Play&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;others&#34;&gt;Others&lt;/h3&gt;
+&lt;p&gt;Thanks to Spitlight for helping me test the game throughout and recording the Trial Play Video.&lt;/p&gt;
+&lt;p&gt;Thanks to all the players who participated in the playtest.&lt;/p&gt;
 </description>
         </item>
         

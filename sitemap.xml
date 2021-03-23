@@ -2,35 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://czzzzh.github.io/p/etshelper/</loc>
+    <lastmod>2020-08-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://czzzzh.github.io/</loc>
+    <lastmod>2020-08-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://czzzzh.github.io/post/</loc>
+    <lastmod>2020-08-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://czzzzh.github.io/tags/python/</loc>
+    <lastmod>2020-08-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://czzzzh.github.io/tags/</loc>
+    <lastmod>2020-08-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://czzzzh.github.io/tags/tool/</loc>
+    <lastmod>2020-08-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://czzzzh.github.io/tags/c&#43;&#43;/</loc>
+    <lastmod>2020-06-21T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://czzzzh.github.io/tags/computer-graphics/</loc>
     <lastmod>2020-06-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://czzzzh.github.io/</loc>
-    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://czzzzh.github.io/p/photorealistic-renderer/</loc>
-    <lastmod>2020-06-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://czzzzh.github.io/tags/photorealistic-rendering/</loc>
-    <lastmod>2020-06-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://czzzzh.github.io/post/</loc>
-    <lastmod>2020-06-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://czzzzh.github.io/tags/sppm/</loc>
-    <lastmod>2020-06-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://czzzzh.github.io/tags/</loc>
     <lastmod>2020-06-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://czzzzh.github.io/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://czzzzh.github.io/page/</loc>
-    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://czzzzh.github.io/about/</loc>
-    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
+    <loc>http://czzzzh.github.io/tags/game/</loc>
+    <lastmod>2019-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://czzzzh.github.io/p/tunestory/</loc>
+    <lastmod>2019-04-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://czzzzh.github.io/categories/</loc>
   </url><url>

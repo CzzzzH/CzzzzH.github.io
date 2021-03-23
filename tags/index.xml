@@ -6,7 +6,34 @@
     <description>Recent content in Tags on MorPhLing&#39;s Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://czzzzh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://czzzzh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python</title>
+      <link>http://czzzzh.github.io/tags/python/</link>
+      <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://czzzzh.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tool</title>
+      <link>http://czzzzh.github.io/tags/tool/</link>
+      <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://czzzzh.github.io/tags/tool/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>http://czzzzh.github.io/tags/c&#43;&#43;/</link>
+      <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://czzzzh.github.io/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Computer Graphics</title>
       <link>http://czzzzh.github.io/tags/computer-graphics/</link>
@@ -17,20 +44,11 @@
     </item>
     
     <item>
-      <title>Photorealistic Rendering</title>
-      <link>http://czzzzh.github.io/tags/photorealistic-rendering/</link>
-      <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
+      <title>Game</title>
+      <link>http://czzzzh.github.io/tags/game/</link>
+      <pubDate>Fri, 12 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://czzzzh.github.io/tags/photorealistic-rendering/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SPPM</title>
-      <link>http://czzzzh.github.io/tags/sppm/</link>
-      <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://czzzzh.github.io/tags/sppm/</guid>
+      <guid>http://czzzzh.github.io/tags/game/</guid>
       <description></description>
     </item>
     

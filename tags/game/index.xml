@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Game on MorPhLing&#39;s Space</title>
+    <link>http://czzzzh.github.io/tags/game/</link>
+    <description>Recent content in Game on MorPhLing&#39;s Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://czzzzh.github.io/tags/game/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TuneStory</title>
+      <link>http://czzzzh.github.io/p/tunestory/</link>
+      <pubDate>Fri, 12 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://czzzzh.github.io/p/tunestory/</guid>
+      <description>See https://github.com/CzzzzH/TuneStory
+Introduction This project is a tiny Music Game developped by Qt
+The game only runs at 1920 * 1080 resolution and the platform of Windows.
+You can make your own song charts in this game, and the guide is included in the 制谱指南.txt
+Currently the game server is down, so the user system and leaderboards are not available now. You can still play with the single game.
+Screenshots 1</description>
+    </item>
+    
+  </channel>
+</rss>
