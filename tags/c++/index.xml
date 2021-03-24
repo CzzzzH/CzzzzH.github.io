@@ -6,7 +6,18 @@
     <description>Recent content in C&#43;&#43; on MorPhLing&#39;s Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://czzzzh.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 11 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://czzzzh.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazing Electric Car</title>
+      <link>http://czzzzh.github.io/p/amazing-electric-car/</link>
+      <pubDate>Fri, 11 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://czzzzh.github.io/p/amazing-electric-car/</guid>
+      <description>See https://github.com/CzzzzH/EDC22-TeamYosoro
+Introduction This engineering project is a design for the 22th Electronic Design Competition of Tsinghua University, and it finally achieves the third prize(top 5% of all teams).
+We use Arduino Mega 2560 as our controller, which enables our electric car to drive itself directed by the black taps on the floor and finishes the tasks in the competition. The modules installed on the car include Bluetooth, ZigBee, gyroscope and lots of infrared sensors.</description>
+    </item>
+    
     <item>
       <title>Photorealistic Renderer</title>
       <link>http://czzzzh.github.io/p/photorealistic-renderer/</link>
