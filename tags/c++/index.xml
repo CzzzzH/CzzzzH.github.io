@@ -24,7 +24,8 @@ We use Arduino Mega 2560 as our controller, which enables our electric car to dr
       <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>http://czzzzh.github.io/p/photorealistic-renderer/</guid>
-      <description>Introduction This project implements a C++ program for realistic scene rendering. The rendering algorithm is based on random gradual photon mapping (SPPM). The renderer can render mesh with textures and parametric surfaces (intersections are solved by iterative analytic equations), and the depth of field can be achieved by simulating focal length.
+      <description>See https://github.com/CzzzzH/Photorealistic-Renderer
+Introduction This project implements a C++ program for realistic scene rendering. The rendering algorithm is based on Stochastic Progressive Photon Mapping (SPPM). The renderer can render mesh with textures and parametric surfaces (intersections are solved by iterative analytic equations), and the depth of field can be achieved by simulating focal length.
 Algorithms I use two KD-Tree and a quadtree to accelerate the process of rendering. The former is used for mesh intersection acceleration, and the latter is used for parametric surfaces intersection acceleration.</description>
     </item>
     

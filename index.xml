@@ -101,8 +101,10 @@
         <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
         
         <guid>http://czzzzh.github.io/p/photorealistic-renderer/</guid>
-        <description>&lt;img src="http://czzzzh.github.io/p/photorealistic-renderer/1.bmp" alt="Featured image of post Photorealistic Renderer" /&gt;&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-&lt;p&gt;This project implements a C++ program for realistic scene rendering. The rendering algorithm is based on random gradual photon mapping (SPPM). The renderer can render mesh with textures and parametric surfaces (intersections are solved by iterative analytic equations), and the depth of field can be achieved by simulating focal length.&lt;/p&gt;
+        <description>&lt;img src="http://czzzzh.github.io/p/photorealistic-renderer/1.bmp" alt="Featured image of post Photorealistic Renderer" /&gt;&lt;p&gt;See &lt;a href=&#34;https://github.com/CzzzzH/Photorealistic-Renderer&#34;&gt;https://github.com/CzzzzH/Photorealistic-Renderer&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;This project implements a C++ program for realistic scene rendering. The rendering algorithm is based on &lt;a class=&#34;link&#34; href=&#34;https://dl.acm.org/doi/abs/10.1145/1661412.1618487&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stochastic Progressive Photon Mapping&lt;/a&gt; (SPPM). The renderer can render mesh with textures and parametric surfaces (intersections are solved by iterative analytic equations), and the depth of field can be achieved by simulating focal length.&lt;/p&gt;
 &lt;h3 id=&#34;algorithms&#34;&gt;Algorithms&lt;/h3&gt;
 &lt;p&gt;I use two KD-Tree and a quadtree to accelerate the process of rendering. The former is used for  mesh intersection acceleration, and the latter is used for parametric surfaces intersection acceleration. I also used OpenMP for trivial parallel computing acceleration.&lt;/p&gt;
 &lt;p&gt;The parametric surfaces are calculated with Newton iterative method, the quadtree is important because the convergence of this method depends much on the initial value, so the ray need first intersect the bounding box of the parametric surface, which is built on quadtree.&lt;/p&gt;
