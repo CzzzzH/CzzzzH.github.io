@@ -35,7 +35,9 @@
                 topics of percepting and understanding 3D scenes with learning-based methods.</p>
             </el-col>
           </el-row>
-          <h2 class="section-title">Projects  &nbsp(Click the cards to expand)</h2>
+          <h2 class="section-title">Research Projects</h2>
+          <Publication v-for="pub in pubs" :key="pub.id" :publication="pub" />
+          <h2 class="section-title">Other Projects  &nbsp(Click the cards to expand)</h2>
           <ProjectCard v-for="(category, index) in categories" :key="category" :category="category" :categoryId="index" />
         </div>
       </el-main>
@@ -44,14 +46,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, computed } from 'vue'
 import ProjectCard from './components/ProjectCard.vue'
+import Publication from './components/Publication.vue'
 import projects from './projects'
+import publications from './publications'
 
 export default defineComponent({
   name: 'App',
   components: {
-    ProjectCard
+    ProjectCard,
+    Publication,
   },
   setup() {
     // Get a list of distinct categories
@@ -59,9 +64,11 @@ export default defineComponent({
     const category_id = [...new Set(projects.map((project: {
 [x: string]: any; id: number; category: string; title: string; image: string; description: string; buttons: ({ icon: string; text: string; videoSrc: string; link?: undefined; } | { icon: string; text: string; link: string; videoSrc?: undefined; })[]; 
 }) => project.category_id))];
+    const pubs = computed(() => {return publications;});
     return {
       categories,
-      category_id
+      category_id,
+      pubs
     };
   }
 })

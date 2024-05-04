@@ -80,6 +80,8 @@ export default defineComponent({
             categoryImage.value = imageModule.default;
         });
 
+        // console.log(categoryProjects.value);
+
         return {
             showDetails,
             categoryProjects,

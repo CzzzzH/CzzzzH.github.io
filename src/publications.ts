@@ -10,7 +10,7 @@ export default [
             {
                 icon: 'fa-solid fa-file-lines fa-2x',
                 text: 'Project Page',
-                link: '/MLTD/'
+                link: '/MLTD/index.html'
             },
             {
                 icon: 'fa-solid fa-file-pdf fa-2x',
