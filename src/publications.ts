@@ -15,7 +15,7 @@ export default [
             {
                 icon: 'fa-solid fa-file-pdf fa-2x',
                 text: 'Paper',
-                link: '/MLTD/MLTD.pdf'
+                link: 'https://dl.acm.org/doi/pdf/10.1145/3658218'
             },
             {
                 icon: 'fa-solid fa-circle-play fa-2x',
