@@ -20,18 +20,20 @@
             </el-col>
             <el-col :span="16" class="info">
               <p class="name"><b>Chuhao&nbspChen</b></p>
-              <p class="bio">I am a second-year Master student in Computer Science and Engineering Department of &nbsp<a
-                  href="https://ucsd.edu/" class="bio-link">UC San Diego</a> , currently working with Prof.&nbsp <a
-                  href="https://cseweb.ucsd.edu/~tzli/" class="bio-link"> Tzu-Mao Li</a> . Before coming to UCSD, I
-                obtained my bachelor degree in Computer Science at &nbsp<a href="https://www.tsinghua.edu.cn/en/"
-                  class="bio-link">Tsinghua University</a> , where I did research in &nbsp<a
+              <p class="bio">I am currently working as a research intern at &nbsp<a href="https://www.upenn.edu/"
+                  class="bio-link">University of Pennsylvania</a> , advised by Prof.&nbsp <a href="https://lingjie0206.github.io/"
+                  class="bio-link">Lingjie Liu</a> . Previously, I obtained my master degree in Computer Science at &nbsp<a
+                  href="https://ucsd.edu/" class="bio-link">UC San Diego</a> , where I worked with Prof.&nbsp <a
+                  href="https://cseweb.ucsd.edu/~tzli/" class="bio-link"> Tzu-Mao Li</a>&nbsp and also spent a time in &nbsp <a
+                  href="https://cseweb.ucsd.edu/~tzli/" class="bio-link"> SU Lab</a>&nbsp. I obtained my bachelor degree in
+                  Computer Science at &nbsp<a href="https://www.tsinghua.edu.cn/en/" class="bio-link">Tsinghua University</a> , where I did research in &nbsp<a
                   href="https://cg.cs.tsinghua.edu.cn/" class="bio-link">The Graphics and Geometric Computing
                   Group</a> , advised by Prof.&nbsp<a href="https://cg.cs.tsinghua.edu.cn/#people.htm#shimin.htm"
                   class="bio-link"> Shi-Min Hu</a> .
               </p>
               <p class="bio">I am interested in various topics in Computer Graphics and Computer Vision. My main research
-                interest focus on physically-based rendering, especially the topics of using learning-based methods to
-                improve the rendering quality or accerlerate the rendering process. I am also interested in 3D vision
+                interest focus on learning-based graphics, especially the topics of using ML/DL methods to
+                improve the physically-based rendering and simulation. I am also interested in 3D vision
                 topics of percepting and understanding 3D scenes with learning-based methods.</p>
             </el-col>
           </el-row>
@@ -39,6 +41,16 @@
           <Publication v-for="pub in pubs" :key="pub.id" :publication="pub" />
           <h2 class="section-title">Other Projects  &nbsp(Click the cards to expand)</h2>
           <ProjectCard v-for="(category, index) in categories" :key="category" :category="category" :categoryId="index" />
+          <h2 class="section-title">Activities</h2>
+          <el-row>
+          <el-col :span="16" class="activities">
+            <p><b>Teaching Assistant: </b>&nbsp <a href="https://neural-representation-2024.github.io" class="bio-link">CIS-7000-005: 
+              Neural Scene Representation and Neural Rendering</a></p><br>
+            <p><b>Reviewer:</b>&nbsp Pacific Graphics 2024 </p><br>
+            <p><b>Talk:</b>&nbsp SoCal Rendering Day 2024 </p><br>
+          </el-col>
+          </el-row>
+          
         </div>
       </el-main>
     </el-container>
@@ -137,6 +149,12 @@ body {
 .info {
   padding-top: 10px;
   padding-left: 50px;
+  flex: 1;
+}
+
+.activities {
+  padding-top: 10px;
+  padding-left: 30px;
   flex: 1;
 }
 
