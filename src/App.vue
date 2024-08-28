@@ -24,12 +24,12 @@
                   class="bio-link">University of Pennsylvania</a> , advised by Prof.&nbsp <a href="https://lingjie0206.github.io/"
                   class="bio-link">Lingjie Liu</a> . Previously, I obtained my master degree in Computer Science at &nbsp<a
                   href="https://ucsd.edu/" class="bio-link">UC San Diego</a> , where I worked with Prof.&nbsp <a
-                  href="https://cseweb.ucsd.edu/~tzli/" class="bio-link"> Tzu-Mao Li</a>&nbsp and also spent a time in &nbsp <a
-                  href="https://cseweb.ucsd.edu/~tzli/" class="bio-link"> SU Lab</a>&nbsp. I obtained my bachelor degree in
+                  href="https://cseweb.ucsd.edu/~tzli/" class="bio-link">Tzu-Mao Li</a>&nbsp and I also spent a time in&nbsp <a
+                  href="https://cseweb.ucsd.edu/~haosu/" class="bio-link">SU Lab</a>&nbsp. I obtained my bachelor degree in
                   Computer Science at &nbsp<a href="https://www.tsinghua.edu.cn/en/" class="bio-link">Tsinghua University</a> , where I did research in &nbsp<a
                   href="https://cg.cs.tsinghua.edu.cn/" class="bio-link">The Graphics and Geometric Computing
-                  Group</a> , advised by Prof.&nbsp<a href="https://cg.cs.tsinghua.edu.cn/#people.htm#shimin.htm"
-                  class="bio-link"> Shi-Min Hu</a> .
+                  Group</a> , advised by Prof.&nbsp <a href="https://cg.cs.tsinghua.edu.cn/#people.htm#shimin.htm"
+                  class="bio-link">Shi-Min Hu</a> .
               </p>
               <p class="bio">I am interested in various topics in Computer Graphics and Computer Vision. My main research
                 interest focus on learning-based graphics, especially the topics of using ML/DL methods to
@@ -44,10 +44,10 @@
           <h2 class="section-title">Activities</h2>
           <el-row>
           <el-col :span="16" class="activities">
-            <p><b>Teaching Assistant: </b>&nbsp <a href="https://neural-representation-2024.github.io" class="bio-link">CIS-7000-005: 
+            <p class="bio"><b>Teaching Assistant: </b>&nbsp <a href="https://neural-representation-2024.github.io" class="bio-link">CIS-7000-005: 
               Neural Scene Representation and Neural Rendering</a></p><br>
-            <p><b>Reviewer:</b>&nbsp Pacific Graphics 2024 </p><br>
-            <p><b>Talk:</b>&nbsp SoCal Rendering Day 2024 </p><br>
+            <p class="bio"><b>Reviewer:</b>&nbsp Pacific Graphics 2024 </p><br>
+            <p class="bio"><b>Talk:</b>&nbsp SoCal Rendering Day 2024 </p><br>
           </el-col>
           </el-row>
           
