@@ -44,10 +44,9 @@
           <h2 class="section-title">Activities</h2>
           <el-row>
           <el-col :span="16" class="activities">
-            <p class="bio"><b>Teaching Assistant: </b>&nbsp <a href="https://neural-representation-2024.github.io" class="bio-link">CIS-7000-005: 
-              Neural Scene Representation and Neural Rendering</a></p><br>
-            <p class="bio"><b>Reviewer:</b>&nbsp Pacific Graphics 2024 </p><br>
-            <p class="bio"><b>Talk:</b>&nbsp SoCal Rendering Day 2024 </p><br>
+            <p class="bio"><b>Teaching Assistant: </b>&nbsp <a href="https://neural-representation-2024.github.io" class="bio-link">CIS-7000-005(Neural Scene Representation and Neural Rendering)</a></p>
+            <p class="bio"><b>Reviewer:</b>&nbsp Pacific Graphics 2024 </p>
+            <p class="bio"><b>Talk:</b>&nbsp SoCal Rendering Day 2024 </p>
           </el-col>
           </el-row>
           
