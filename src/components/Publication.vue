@@ -1,9 +1,9 @@
 <template>
     <el-row class="publication" :gutter="5">
-        <el-col :span="6">
+        <el-col :span="8">
             <img class="publication-image" :src="publication.image" :alt="publication.title" />
         </el-col>
-        <el-col :span="18">
+        <el-col :span="14">
             <el-row class="publication-title-row">
                 <el-col :span="24">
                     <p class="publication-title"><b>{{ publication.title }}</b></p>
@@ -86,31 +86,32 @@ export default defineComponent({
 }
 
 .publication-image {
-    width: 200px;
+    width: 300px;
     height: 200px;
 }
 
 .publication-title {
     margin: 0px;
-    font-size: 22px;
-    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
     font-weight: 400;
 }
 
 .publication-authors {
     margin: 0px;
-    font-size: 18px;
-    font-family: 'Poppins', sans-serif;
+    margin-top: -25px;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
     font-weight: 400;
 }
 
 .publication-publisher {
     margin: 0px;
-    font-size: 18px;
-    font-family: 'Poppins', sans-serif;
+    margin-top: -5px;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
     font-weight: 400;
 }
-
 
 .publication-title-row {
     height: 40%;
@@ -129,6 +130,7 @@ export default defineComponent({
 }
 
 .publication-button {
+    margin-top: -10px;
     padding: 12px;
     color: rgba(0, 0, 0, 0.9);
     border-width: 1px;
@@ -156,5 +158,12 @@ export default defineComponent({
 
 .video-player {
     width: 100%;
+}
+</style>
+
+<style>
+.highlight-pub{
+    color: rgb(1, 31, 091);
+    font-weight: bold;
 }
 </style>

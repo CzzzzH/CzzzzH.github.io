@@ -143,7 +143,7 @@ export default defineComponent({
     z-index: 2;
     /* ensure the text stays in front */
     font-size: 60px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: white;
     margin-top: -15px;
     padding-left: 300px;

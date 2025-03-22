@@ -87,14 +87,14 @@ export default defineComponent({
 .project-title {
     margin: 0px;
     font-size: 22px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Latos', sans-serif;
     font-weight: 400;
 }
 
 .project-description {
     margin: 0px;
     font-size: 16px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Latos', sans-serif;
     font-weight: 400;
 }
 

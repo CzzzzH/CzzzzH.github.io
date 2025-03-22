@@ -13,5 +13,11 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  server: {
+    watch: {
+      usePolling: true
+    },
+    port: 8000 // 更改端口为8000
   }
 })
