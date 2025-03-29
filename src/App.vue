@@ -49,7 +49,8 @@
             <p class="bio"><b>Talk:</b>&nbsp&nbsp SoCal Rendering Day 2024 </p>
           </el-col>
           </el-row>
-          
+          <div ref="clustrMapContainer"></div>
+          <!-- <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=THVTe2YB5KOZKR5GWWlFYej4NecUmnTKFe_CjsTVzLI&co=2d78ad&cmo=9b00ff&cmn=ff5353&ct=ffffff'></script> -->
         </div>
       </el-main>
     </el-container>
@@ -57,7 +58,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent, onMounted, ref, computed } from 'vue'
 import ProjectCard from './components/ProjectCard.vue'
 import Publication from './components/Publication.vue'
 import projects from './projects'
@@ -69,6 +70,7 @@ export default defineComponent({
     ProjectCard,
     Publication,
   },
+  
   setup() {
     // Get a list of distinct categories
     const categories = [...new Set(projects.map((project: { category: any; }) => project.category))];
@@ -76,12 +78,30 @@ export default defineComponent({
 [x: string]: any; id: number; category: string; title: string; image: string; description: string; buttons: ({ icon: string; text: string; videoSrc: string; link?: undefined; } | { icon: string; text: string; link: string; videoSrc?: undefined; })[]; 
 }) => project.category_id))];
     const pubs = computed(() => {return publications;});
+
+    const clustrMapContainer = ref(null)
+    onMounted(() => {
+      const script = document.createElement('script')
+      script.type = 'text/javascript'
+      script.id = 'clustrmaps'
+      script.src = '//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=THVTe2YB5KOZKR5GWWlFYej4NecUmnTKFe_CjsTVzLI&co=2d78ad&cmo=9b00ff&cmn=ff5353&ct=ffffff'
+
+      // Append to body or specific container
+      if (clustrMapContainer.value) {
+        clustrMapContainer.value.appendChild(script)
+      }
+    })
+
     return {
       categories,
       category_id,
-      pubs
+      pubs,
+      clustrMapContainer
     };
   }
+
+  
+
 })
 </script>
 
