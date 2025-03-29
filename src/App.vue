@@ -79,7 +79,7 @@ export default defineComponent({
 }) => project.category_id))];
     const pubs = computed(() => {return publications;});
 
-    const clustrMapContainer = ref(null)
+    const clustrMapContainer = ref<HTMLDivElement | null>(null)
     onMounted(() => {
       const script = document.createElement('script')
       script.type = 'text/javascript'
