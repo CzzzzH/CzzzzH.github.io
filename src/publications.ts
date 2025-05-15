@@ -9,34 +9,24 @@ export default [
         buttons: [
             {
                 icon: 'fa-solid fa-file-lines fa-2x',
-                text: 'Comming soon',
-                link: '',
-                disabled: true
+                text: 'Project Page',
+                link: '/Vid2Sim/index.html',
             },
-            // {
-            //     icon: 'fa-solid fa-file-lines fa-2x',
-            //     text: 'Project Page',
-            //     link: '',
-            //     disabled: true
-            // },
-            // {
-            //     icon: 'fa-solid fa-file-pdf fa-2x',
-            //     text: 'Paper',
-            //     link: '',
-            //     disabled: true
-            // },
-            // {
-            //     icon: 'fa-solid fa-circle-play fa-2x',
-            //     text: 'Video',
-            //     videoSrc: '',
-            //     disabled: true
-            // },
-            // {
-            //     icon: 'fab fa-github fa-2x',
-            //     text: 'Code',
-            //     link: '',
-            //     disabled: true
-            // }
+            {
+                icon: 'fa-solid fa-file-pdf fa-2x',
+                text: 'Paper',
+                link: '/Vid2Sim/Vid2Sim.pdf',
+            },
+            {
+                icon: 'fa-solid fa-circle-play fa-2x',
+                text: 'Video',
+                videoSrc: '/Vid2Sim/Vid2Sim.mp4',
+            },
+            {
+                icon: 'fab fa-github fa-2x',
+                text: 'Code',
+                link: 'https://github.com/CzzzzH/Vid2Sim',
+            }
         ]
     },
     {
