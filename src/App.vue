@@ -20,21 +20,21 @@
             </el-col>
             <el-col :span="16" class="info">
               <p class="name"><b>Chuhao&nbspChen</b></p>
-              <p class="bio">I am a research assistant & an incoming PhD student at &nbsp&nbsp<a href="https://www.upenn.edu/"
+              <p class="bio">I am a first-year PhD student at &nbsp&nbsp<a href="https://www.upenn.edu/"
                   class="bio-link">University of Pennsylvania</a>&nbsp&nbsp, fortunately advised by Prof.&nbsp&nbsp&nbsp<a href="https://lingjie0206.github.io/"
                   class="bio-link">Lingjie Liu</a>&nbsp&nbsp. I obtained my master degree in Computer Science at &nbsp&nbsp<a
                   href="https://ucsd.edu/" class="bio-link">UC San Diego</a>&nbsp&nbsp, where I have a pleasure time working with Prof.&nbsp&nbsp&nbsp<a
                   href="https://cseweb.ucsd.edu/~tzli/" class="bio-link">Tzu-Mao Li&nbsp&nbsp</a>. I also interned in&nbsp&nbsp <a
-                  href="https://cseweb.ucsd.edu/~haosu/" class="bio-link">SU Lab</a>&nbsp&nbsp&nbspwhen I was in UCSD. I obtained my bachelor degree in
+                  href="https://cseweb.ucsd.edu/~haosu/" class="bio-link">SU Lab</a>&nbsp&nbsp&nbspat UCSD, mentored by Dr.&nbsp&nbsp&nbsp<a
+                  href="https://cseweb.ucsd.edu/~mil070/" class="bio-link">Minghua Liu&nbsp&nbsp</a>. I obtained my bachelor degree in
                   Computer Science at &nbsp&nbsp<a href="https://www.tsinghua.edu.cn/en/" class="bio-link">Tsinghua University</a>&nbsp&nbsp, where I did research in &nbsp&nbsp<a
                   href="https://cg.cs.tsinghua.edu.cn/" class="bio-link">The Graphics and Geometric Computing
                   Group</a>&nbsp&nbsp, advised by Prof.&nbsp&nbsp <a href="https://cg.cs.tsinghua.edu.cn/#people.htm#shimin.htm"
                   class="bio-link">Shi-Min Hu</a>&nbsp&nbsp.
               </p>
-              <p class="bio">I am interested in various topics in Computer Graphics and Computer Vision and Machine Learning. My main research
+              <p class="bio">I am interested in various topics in Computer Graphics, Computer Vision and Machine Learning. My main research
                 interest focus on the intersection of graphics and AI, exploring how to use ML/DL methods to
-                improve the physically-based rendering and simulation. I am also interested in 3D vision
-                topics of percepting and understanding 3D scenes with learning-based methods.</p>
+                improve the physically-based rendering and simulation and on the other hand, how we can make our intelligence understand our physical world.</p>
             </el-col>
           </el-row>
           <h2 class="section-title">Research Projects</h2>
@@ -45,7 +45,7 @@
           <el-row>
           <el-col :span="16" class="activities">
             <p class="bio"><b>Teaching Assistant:</b>&nbsp&nbsp&nbsp&nbsp<a href="https://neural-representation-2024.github.io" class="bio-link">CIS-7000</a>&nbsp&nbsp,&nbsp&nbsp<a href="https://cis5800.github.io/" class="bio-link">CIS-5800</a></p>
-            <p class="bio"><b>Reviewer:</b>&nbsp&nbsp CVPR 2025, Pacific Graphics 2024 </p>
+            <p class="bio"><b>Reviewer:</b>&nbsp&nbsp ICCV 2025, CVPR 2025, Pacific Graphics 2024 </p>
             <p class="bio"><b>Talk:</b>&nbsp&nbsp SoCal Rendering Day 2024 </p>
           </el-col>
           </el-row>

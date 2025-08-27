@@ -5,12 +5,12 @@
         </el-col>
         <el-col :span="14">
             <el-row class="publication-title-row">
-                <el-col :span="24">
+                <el-col :span="22">
                     <p class="publication-title"><b>{{ publication.title }}</b></p>
                 </el-col>
             </el-row>
             <el-row class="publication-authors-row">
-                <el-col :span="24">
+                <el-col :span="22">
                     <p class="publication-authors" v-html="publication.authors"></p>
                 </el-col>
             </el-row>
