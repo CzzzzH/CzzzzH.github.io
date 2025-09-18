@@ -64,7 +64,7 @@ export default [
         title: 'PhysCtrl: Generative Physics for Controllable and Physics-Grounded Video Generation',
         image: '/Publications/PhysCtrl.png',
         authors: 'Chen Wang*, <b>Chuhao Chen*</b>, Yiming Huang, Zhiyang Dou, Yuan Liu, Jiatao Gu, Lingjie Liu',
-        publisher: '<span><b>arXiv 2025</b></span>',
+        publisher: '<span><b>NeurIPS 2025</b></span>',
         buttons: [
             {
                 icon: 'fa-solid fa-file-lines fa-2x',

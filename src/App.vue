@@ -7,7 +7,7 @@
             <el-col :span="8" class="avatar-container">
               <img class="avatar" src="@/assets/avatar.png" alt="avatar">
               <div class="icons">
-                <a href="mailto:chc091@ucsd.edu" class="icon-link">
+                <a href="mailto:chuhaochen@seas.upenn.edu" class="icon-link">
                   <i class="fas fa-envelope fa-3x"></i>
                 </a>
                 <a href="https://github.com/CzzzzH" class="icon-link">
