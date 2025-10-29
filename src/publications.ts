@@ -10,26 +10,17 @@ export default [
             {
                 icon: 'fa-solid fa-file-lines fa-2x',
                 text: 'Project Page',
-                link: '/FreeArt3D/index.html',
-                disabled: true,
+                link: '/FreeArt3D/index.html' 
             },
             {
                 icon: 'fa-solid fa-file-pdf fa-2x',
                 text: 'Paper',
-                link: '/FreeArt3D/FreeArt3D.pdf',
-                disabled: true,
-            },
-            {
-                icon: 'fa-solid fa-circle-play fa-2x',
-                text: 'Video',
-                videoSrc: '/FreeArt3D/FreeArt3D.mp4',
-                disabled: true,
+                link: '/FreeArt3D/FreeArt3D.pdf'
             },
             {
                 icon: 'fab fa-github fa-2x',
                 text: 'Code',
-                link: 'https://github.com/CzzzzH/FreeArt3D',
-                disabled: true,
+                link: 'https://github.com/CzzzzH/FreeArt3D'
             }
         ]
     },

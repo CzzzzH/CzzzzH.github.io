@@ -34,6 +34,158 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <script type="module" src="https://unpkg.com/img-comparison-slider@8.0.0/dist/index.js"></script>
+  
+  <!-- Preload GIF assets to ensure immediate animation playback -->
+  <link rel="preload" as="image" href="./assets/sds.gif">
+  <link rel="preload" as="image" href="./assets/results/box.gif">
+  <link rel="preload" as="image" href="./assets/results/cabinet.gif">
+  <link rel="preload" as="image" href="./assets/results/table.gif">
+  <link rel="preload" as="image" href="./assets/results/oven.gif">
+  <link rel="preload" as="image" href="./assets/results/diverse.gif">
+  
+  <!-- MathJax for LaTeX rendering -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <style>
+    .comparison-container {
+      user-select: none;
+    }
+    
+    img-comparison-slider {
+      --divider-width: 0px;
+      --divider-color: #ffffff;
+      --handle-size: 80px;
+      --handle-color: #ffffff; 
+      border-radius: 8px; 
+      overflow: hidden;
+      width: 100%;
+      height: auto;
+      outline: none;
+      border: none;
+    }
+    
+    img-comparison-slider:focus {
+      outline: none;
+      border: none;
+    }
+    
+    img-comparison-slider:active {
+      outline: none;
+      border: none;
+    }
+    
+    img-comparison-slider::part(before) {
+      position: relative;
+    }
+    
+    img-comparison-slider::part(after) {
+      position: relative;
+    }
+
+    
+    .comparison-container::before {
+      content: "Articulated Parts";
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      z-index: 10;
+      pointer-events: none;
+    }
+    
+    .comparison-container::after {
+      content: "RGB";
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      z-index: 10;
+      pointer-events: none;
+    }
+    
+    /* Pipeline container labels */
+    .pipeline-container::before {
+      content: "Input Images";
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      z-index: 10;
+      pointer-events: none;
+    }
+    
+    .pipeline-container::after {
+      content: "SDS Optimization Process";
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      z-index: 10;
+      pointer-events: none;
+    }
+    
+    /* Results container styling */
+    .results-container {
+      margin-bottom: 30px;
+      transition: transform 0.2s ease;
+    }
+    
+    .results-container:last-child {
+      margin-bottom: 0;
+    }
+    
+    .results-container:hover {
+      transform: translateY(-2px);
+    }
+    
+    .results-container:hover img {
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    
+    .results-text {
+      transition: opacity 0.2s ease;
+    }
+    
+    .results-container:hover .results-text {
+      opacity: 0.9;
+    }
+    
+    /* Add labels */
+    .comparison-container {
+      position: relative;
+    }
+    
+  </style>
 </head>
 
 <body>
@@ -43,72 +195,76 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Vid2Sim: Generalizable, Video-based Reconstruction of Appearance, Geometry and Physics for Mesh-free Simulation</h1>
+            <h1 class="title is-1 publication-title">FreeArt3D: Training-Free Articulated Object Generation using 3D Diffusion</h1>
             <div class="is-size-4 publication-authors">
               <span class="author-block">
                 <a href="https://czzzzh.github.io/">Chuhao Chen</a><sup>1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://frank-zy-dou.github.io/">Zhiyang Dou</a><sup>1,2</sup>,
+                <a href="https://www.liuisabella.com/">Isabella Liu</a><sup>1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://cwchenwang.github.io/">Chen Wang</a><sup>1</sup>,
+                <a href="https://sarahweiii.github.io/">Xinyue Wei</a><sup>1, 2</sup>,
               </span>
               <span class="author-block">
-                <a href="https://yh2371.github.io/">Yiming Huang</a><sup>1</sup>,
+                <a href="https://cseweb.ucsd.edu/~haosu/">Hao Su</a><sup>1, 2</sup>,
               </span>
               <span class="author-block">
-                <a href="https://chen3110.github.io/">Anjun Chen</a><sup>1,3</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://fengq1a0.github.io/">Qiao Feng</a><sup>1</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://jiataogu.me/">Jiatao Gu</a><sup>1</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://lingjie0206.github.io/">Lingjie Liu</a><sup>1</sup>,
+                <a href="https://cseweb.ucsd.edu/~mil070/">Minghua Liu</a><sup>2</sup>
               </span>
             </div>
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>1</sup>University of Pennsylvania&nbsp;&nbsp;</span>
-              <span class="author-block"><sup>2</sup>The University of Hong Kong&nbsp;&nbsp;</span>
-              <span class="author-block"><sup>3</sup>Zhejiang University</span>
+              <span class="author-block"><sup>1</sup>University of California San Diego&nbsp;&nbsp;</span>
+              <span class="author-block"><sup>2</sup>Hillbot Inc&nbsp;&nbsp;</span> 
             </div>
             
             <div class="column has-text-centered">
-              <h2 class="subtitle is-3"><b>CVPR 2025</b></h2>
+              <h2 class="subtitle is-4"><b>SIGGRAPH Asia 2025</b></h2>
             </div>
 
             <div class="column has-text-centered">
               <div class="publication-links">
+                <!-- arXiv Link. -->
+                <span class="link-block">
+                  <a href="./FreeArt3D.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span> 
                 <!-- PDF Link. -->
                 <span class="link-block">
-                  <a href="./Vid2Sim.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <a href="./FreeArt3D.pdf" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
                     <span>Paper</span>
                   </a>
-                </span>
-                <!-- Video Link. -->
-                <span class="link-block">
-                  <a href="./Vid2Sim.mp4"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                    </span>
-                    <span>Video</span>
-                  </a>
-                </span>
+                </span> 
                 <!-- Code Link. -->
                 <span class="link-block">
-                  <a href="https://github.com/CzzzzH/Vid2Sim" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://github.com/CzzzzH/FreeArt3D" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code (comming soon)</span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Demo Link. -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/spaces/MorPhLingXD/FreeArt3D" class="external-link button is-normal is-rounded is-dark">
+                    <span>🤗 Demo</span>
+                  </a>
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="https://drive.google.com/file/d/1cKCfHZt4qYoPaQdCW_Xq9x6brS9eP__T/view" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-database"></i>
+                    </span>
+                    <span>Dataset & Results</span>
                   </a>
                 </span>
               </div>
@@ -123,237 +279,177 @@
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div>
-        <img src="./static/images/teaser.png" />
-        <h2 class="content has-text-justified">
-            <b>Vid2Sim</b> achieves high-quality reconstruction of appearance, geometry, and physics from multi-view videos effectively. The
-            reconstruction results are simulation-ready, enabling high-fidelity and visually appealing animations via mesh-free simulation. Here, we
-            present our method’s reconstruction and simulation results in the <a href="https://app.gazebosim.org/GoogleResearch/fuel/collections/Scanned%20Objects%20by%20Google%20Research">GSO Dataset</a> .
+        <img src="./assets/teaser.png" />
+        <h2 class="content has-text-justified" style="margin-top: 10px;">
+          <b>FreeArt3D</b> is a training-free framework that generates articulated 3D objects from a few images by leveraging a pre-trained 3D diffusion model for static objects. It jointly optimizes geometry, texture, and kinematics, achieving high-fidelity results across diverse categories without large datasets or task-specific training, outperforming prior state-of-the-art methods.
         </h2>
       </div>
     </div>
   </section>
 
-
-  <!-- <section class="hero is-light is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item item-steve">
-            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/steve.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-chair-tp">
-            <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/chair-tp.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-shiba">
-            <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/shiba.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-fullbody">
-            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/fullbody.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-blueshirt">
-            <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/blueshirt.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-mask">
-            <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/mask.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-coffee">
-            <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/coffee.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-toby">
-            <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/toby2.mp4" type="video/mp4">
-            </video>
+  <!-- Interactive Comparison Section -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          
+          <!-- Image Comparison Container -->
+          <div class="comparison-container" style="width: 100%; margin: 0 auto;">
+            <img-comparison-slider>
+              <img slot="before" src="./assets/room/renderings/frame_0000.jpg" alt="Input">
+              <img slot="after" src="./assets/room/renderings_part/frame_0000.jpg" alt="FreeArt3D Output">
+            </img-comparison-slider>
+            
+            <!-- Frame Slider -->
+            <div style="margin-top: -10px;">
+              <div class="field"> 
+                <div class="control">
+                  <input class="slider is-fullwidth is-large is-info" 
+                         id="frame-slider" 
+                         type="range" 
+                         min="0" 
+                         max="99" 
+                         value="0" 
+                         step="1">
+                </div>
+                <div class="has-text-centered" style="margin-top: -10px;">
+                  <b>◀ Slide to articulate the object ▶</b>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
 
-  <section class="section">
+  <section class="section" style="margin-top: -50px;">
     <div class="container is-max-desktop">
       <!-- Abstract. -->
       <div class="columns is-centered">
         <div class="column">
-          <h2 class="title is-3">Abstract</h2>
+          <h2 class="title has-text-centered is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Faithfully reconstructing textured shapes and physical
-properties from videos presents an intriguing yet challenging problem. Significant efforts have been dedicated to advancing such a system identification problem in this area.
-Previous methods often rely on heavy optimization pipelines
-with a differentiable simulator and renderer to estimate
-physical parameters. However, these approaches frequently
-necessitate extensive hyperparameter tuning for each scene
-and involve a costly optimization process, which limits both
-their practicality and generalizability. In this work, we propose a novel framework, Vid2Sim, a generalizable videobased approach for recovering geometry and physical properties through a mesh-free reduced simulation based on
-Linear Blend Skinning (LBS), offering high computational
-efficiency and versatile representation capability. Specifically, Vid2Sim first reconstructs the observed configuration
-of the physical system from video using a feed-forward neural network trained to capture physical world knowledge. A
-lightweight optimization pipeline then refines the estimated
-appearance, geometry, and physical properties to closely
-align with video observations within just a few minutes. Additionally, after the reconstruction, Vid2Sim enables highquality, mesh-free simulation with high efficiency. Extensive experiments demonstrate that our method achieves superior accuracy and efficiency in reconstructing geometry
-and physical properties from video data.
+              Articulated 3D objects are central to many applications in robotics, AR/VR, and animation. 
+              Recent approaches to modeling such objects either rely on optimization-based reconstruction 
+              pipelines that require dense-view supervision or on feed-forward generative models that produce
+              coarse geometric approximations and often overlook surface texture. In contrast, open-world 3D 
+              generation of static objects has achieved remarkable success, especially with the advent of native 
+              3D diffusion models such as Trellis. However, extending these methods to articulated objects by 
+              training native 3D diffusion models poses significant challenges. In this work, we present FreeArt3D, 
+              a training-free framework for articulated 3D object generation. Instead of training a new model on 
+              limited articulated data, FreeArt3D repurposes a pre-trained static 3D diffusion model (e.g., Trellis) 
+              as a powerful shape prior. It extends Score Distillation Sampling (SDS) into the 3D-to-4D domain by 
+              treating articulation as an additional generative dimension. Given a few images captured in different 
+              articulation states, FreeArt3D jointly optimizes the object’s geometry, texture, and articulation 
+              parameters—without requiring task-specific training or access to large-scale articulated datasets. 
+              Our method generates high-fidelity geometry and textures, accurately predicts underlying kinematic 
+              structures, and generalizes well across diverse object categories. Despite following a per-instance 
+              optimization paradigm, FreeArt3D completes in minutes and significantly outperforms prior 
+              state-of-the-art approaches in both quality and versatility.
             </p>
           </div>
         </div>
-      </div>
-      <!--/ Abstract. -->
-
-      <!-- Paper video. -->
-      <div class="columns is-centered">
-        <div class="column">
-          <h2 class="title is-3">Video</h2>
-          <div class="publication-video">
-            <video src="./Vid2Sim.mp4" controls loop playsinline height="100%"></video>
-          </div>
-        </div>
-      </div>
-      <!--/ Paper video. -->
+      </div> 
     </div>
   </section>
 
-  <!-- <section class="section">
+  <section class="section" style="margin-top: -50px;">
     <div class="container is-max-desktop">
-
+      <!-- Method Overview. -->
       <div class="columns is-centered">
-        
         <div class="column">
-          <div class="content">
-            <h2 class="title is-3">Visual Effects</h2>
-            <p>
-              Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-              would be impossible without nerfies since it would require going through a wall.
-            </p>
-            <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/dollyzoom-stacked.mp4" type="video/mp4">
-            </video>
+          <h2 class="title has-text-centered is-3">Method Overview</h2>
+          <div>
+            <img src="./assets/pipeline.png" />
+            <h2 class="content has-text-justified" style="margin-top: 10px;">
+              <b>FreeArt3D</b> takes sparse-view images of an articulated object in different joint states, and jointly optimizes the body geometry, the movable-part geometry and the joint parameters (axis, pivot, etc.). It builds a merged coarse occupancy grid by transforming the two parts according to the current joint parameters and states, and optimizes this grid using guidance from a pretrained 3D diffusion model <a href="https://trellis3d.github.io/"><b>TRELLIS</b></a>. The result is then fed into the pretrained second-stage diffusion and VAE models to generate fine-grained geometry and realistic textures.
+            </h2>
           </div>
-        </div>
-
-        <div class="column">
-          <h2 class="title is-3">Matting</h2>
-          <div class="columns is-centered">
-            <div class="column content">
-              <p>
-                As a byproduct of our method, we can also solve the matting problem by ignoring
-                samples that fall outside of a bounding box during rendering.
-              </p>
-              <video id="matting-video" controls playsinline height="100%">
-                <source src="./static/videos/matting.mp4" type="video/mp4">
-              </video>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="columns is-centered">
-        <div class="column is-full-width">
-          <h2 class="title is-3">Animation</h2>
-
-          <h3 class="title is-4">Interpolating states</h3>
-          <div class="content has-text-justified">
-            <p>
-              We can also animate the scene by interpolating the deformation latent codes of two input
-              frames. Use the slider here to linearly interpolate between the left frame and the right
-              frame.
-            </p>
-          </div>
-          <div class="columns is-vcentered interpolation-panel">
-            <div class="column is-3 has-text-centered">
-              <img src="./static/images/interpolate_start.jpg" class="interpolation-image"
-                alt="Interpolate start reference image." />
-              <p>Start Frame</p>
-            </div>
-            <div class="column interpolation-video-column">
-              <div id="interpolation-image-wrapper">
-                Loading...
+          
+          <!-- Two Column Images Container -->
+          <div class="pipeline-container" style="position: relative; width: 100%; margin: 20px auto 0;">
+            <div class="pipeline-wrapper" style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+               
+              <div style="width: 50%; float: left;">
+                <img src="./assets/input.png" style="width: 100%; height: auto; display: block;" alt="Pipeline Animation">
               </div>
-              <input class="slider is-fullwidth is-large is-info" id="interpolation-slider" step="1" min="0" max="100"
-                value="0" type="range">
+               
+              <div style="width: 50%; float: left;">
+                <img src="./assets/sds.gif" loading="eager" decoding="sync" style="width: 100%; height: auto; display: block;" alt="Pipeline Overview">
+              </div>
+              
+              <!-- Clear float -->
+              <div style="clear: both;"></div>
             </div>
-            <div class="column is-3 has-text-centered">
-              <img src="./static/images/interpolate_end.jpg" class="interpolation-image"
-                alt="Interpolation end reference image." />
-              <p class="is-bold">End Frame</p>
+            <div class="has-text-centered" style="margin-top: 10px;">
+              <b>Visualization of the SDS Optimization Process</b>
             </div>
-          </div>
-          <br />
-
-          <h3 class="title is-4">Re-rendering the input video</h3>
-          <div class="content has-text-justified">
-            <p>
-              Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-              viewpoint such as a stabilized camera by playing back the training deformations.
-            </p>
-          </div>
-          <div class="content has-text-centered">
-            <video id="replay-video" controls muted preload playsinline width="75%">
-              <source src="./static/videos/replay.mp4" type="video/mp4">
-            </video>
-          </div>
-
-        </div>
-      </div>
-
-
-      <div class="columns is-centered">
-        <div class="column is-full-width">
-          <h2 class="title is-3">Related Links</h2>
-
-          <div class="content has-text-justified">
-            <p>
-              There's a lot of excellent work that was introduced around the same time as ours.
-            </p>
-            <p>
-              <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an
-              idea similar to our windowed position encoding for coarse-to-fine optimization.
-            </p>
-            <p>
-              <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a
-                href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-              both use deformation fields to model non-rigid scenes.
-            </p>
-            <p>
-              Some works model videos with a NeRF by directly modulating the density, such as <a
-                href="https://video-nerf.github.io/">Video-NeRF</a>, <a
-                href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a
-                href="https://neural-3d-video.github.io/">DyNeRF</a>
-            </p>
-            <p>
-              There are probably many more by the time you are reading this. Check out <a
-                href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a
-                href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-            </p>
           </div>
         </div>
-      </div>
-
+      </div> 
     </div>
-  </section> -->
+  </section>
+
+   <section class="section" style="margin-top: -50px;">
+     <div class="container is-max-desktop">
+
+       <!-- Results Section -->
+       <div class="columns is-centered">
+         <div class="column">
+           <h2 class="title has-text-centered is-3">Results</h2>
+           
+           <!-- Row 1 -->
+           <div class="results-container" style="position: relative; width: 100%; margin: 20px auto 0;">
+            <img src="./assets/results/box.gif" loading="eager" decoding="sync" style="width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" alt="Result 1">
+             <div class="results-text" style="position: absolute; top: 20px; left: 20px; background: rgba(0,0,0,0.7); color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; z-index: 10; pointer-events: none;">
+               Box
+             </div>
+            <img src="./assets/results/cabinet.gif" loading="eager" decoding="sync" style="width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" alt="Result 1">
+             <div class="results-text" style="position: absolute; top: 260px; left: 20px; background: rgba(0,0,0,0.7); color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; z-index: 10; pointer-events: none;">
+               Cabinet
+             </div>
+            <img src="./assets/results/table.gif" loading="eager" decoding="sync" style="width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" alt="Result 1">
+             <div class="results-text" style="position: absolute; top: 500px; left: 20px; background: rgba(0,0,0,0.7); color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; z-index: 10; pointer-events: none;">
+               Table
+             </div>
+            <img src="./assets/results/oven.gif" loading="eager" decoding="sync" style="width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" alt="Result 1">
+             <div class="results-text" style="position: absolute; top: 740px; left: 20px; background: rgba(0,0,0,0.7); color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; z-index: 10; pointer-events: none;">
+               Oven
+             </div>
+           </div> 
+           
+           <div class="has-text-centered" style="margin-top: 10px;">
+            <b>PartNet-Mobility Results</b>
+          </div>
+
+          <!-- Row 1 -->
+           <div class="results-container" style="position: relative; width: 100%; margin: 20px auto 0;">
+            <img src="./assets/results/diverse.gif" loading="eager" decoding="sync" style="width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" alt="Result 1">
+            <div class="results-text" style="position: absolute; top: 20px; left: 20px; background: rgba(0,0,0,0.7); color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; z-index: 10; pointer-events: none;">
+              Diverse Categories of Objects
+            </div>
+          </div> 
+
+          <div class="has-text-centered" style="margin-top: 10px;">
+            <b>Diverse Categories of Objects</b>
+          </div>
+
+         </div>
+       </div> 
+     </div>
+   </section>
 
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@article{chen2025vid2sim,
-        title={Vid2Sim: Generalizable, Video-based Reconstruction of Appearance, Geometry and Physics for Mesh-free Simulation},
-        author={Chuhao Chen and Zhiyang Dou and Chen Wang and Yiming Huang and Anjun Chen and Qiao Feng and Jiatao Gu and Lingjie Liu},
-        journal={IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-        year={2025}
-      }</code></pre>
+      <pre><code>@InProceedings{chen2025freeart3d,
+  title = {FreeArt3D: Training-Free Articulated Object Generation using 3D Diffusion},
+  author = {Chen, Chuhao and Liu, Isabella and Wei, Xinyue and Su, Hao and Liu, Minghua},
+  booktitle = {SIGGRAPH Asia 2025 Conference Papers},
+  year = {2025}
+}</code></pre>
     </div>
   </section>
 
@@ -364,6 +460,57 @@ and physical properties from video data.
       </div>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Frame slider functionality
+      const frameSlider = document.getElementById('frame-slider');
+      const frameIndicator = document.getElementById('frame-indicator');
+      const beforeImage = document.querySelector('img-comparison-slider img[slot="before"]');
+      const afterImage = document.querySelector('img-comparison-slider img[slot="after"]');
+      
+      // Generate 120 frame images using for-loop
+      const frameImages = [];
+      const afterFrameImages = [];
+      
+      for (let i = 0; i < 120; i++) {
+        const frameNumber = i.toString().padStart(4, '0');
+        frameImages.push(`./assets/room/renderings/frame_${frameNumber}.jpg`);
+        afterFrameImages.push(`./assets/room/renderings_part/frame_${frameNumber}.jpg`);
+      }
+      
+      // Frame slider functionality
+      frameSlider.addEventListener('input', function() {
+        const frameValue = parseInt(this.value);
+        const frameNumber = Math.floor((frameValue / 100) * (frameImages.length - 1));
+        
+        // Update image sources
+        if (beforeImage && afterImage) {
+          beforeImage.src = frameImages[frameNumber];
+          afterImage.src = afterFrameImages[frameNumber];
+        }
+      });
+      
+      // Remove border when clicking on comparison slider
+      const comparisonSlider = document.querySelector('img-comparison-slider');
+      if (comparisonSlider) {
+        comparisonSlider.addEventListener('click', function() {
+          this.style.outline = 'none';
+          this.style.border = 'none';
+        });
+        
+        comparisonSlider.addEventListener('focus', function() {
+          this.style.outline = 'none';
+          this.style.border = 'none';
+        });
+      }
+      
+      // Process MathJax after page loads
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    });
+  </script>
 
 </body>
 
