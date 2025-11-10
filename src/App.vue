@@ -33,8 +33,9 @@
                   class="bio-link">Shi-Min Hu</a>&nbsp&nbsp.
               </p>
               <p class="bio">I am interested in various topics in Computer Graphics, Computer Vision and Machine Learning. My main research
-                interest focus on the intersection of graphics and AI, exploring how to use ML/DL methods to
-                improve the physically-based rendering and simulation and on the other hand, how we can make our intelligence understand our physical world.</p>
+                interest focus on the intersection of graphics and AI, exploring how to use ML/DL methods to improve the physically-based 
+                rendering and simulation (either through traditional pipelines or generative models) and on the other hand, how we can make 
+                our intelligence understand our physical world. </p>
             </el-col>
           </el-row>
           <h2 class="section-title">Research Projects</h2>

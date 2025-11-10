@@ -66,18 +66,11 @@ export default [
                 icon: 'fa-solid fa-file-pdf fa-2x',
                 text: 'Paper',
                 link: 'https://cwchenwang.github.io/physctrl/static/pdfs/paper.pdf'
-            },
-            {
-                icon: 'fa-solid fa-circle-play fa-2x',
-                text: 'Video',
-                videoSrc: '/PhysCtrl/PhysCtrl.mp4',
-                disabled: true,
-            },
+            }, 
             {
                 icon: 'fab fa-github fa-2x',
                 text: 'Code',
-                link: 'https://github.com/CzzzzH/PhysCtrl',
-                disabled: true,
+                link: 'https://github.com/cwchenwang/physctrl'
             }
         ]
     },
