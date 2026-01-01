@@ -6,6 +6,7 @@ export default [
         image: '/Publications/FreeArt3D.png',
         authors: '<b>Chuhao Chen</b>, Isabella Liu, Xinyue Wei, Hao Su, Minghua Liu',
         publisher: '<span class="highlight-pub">SIGGRAPH Asia 2025</span>',
+        bgType: 'yellow', // 'yellow', 'purple', or '' for no background
         buttons: [
             {
                 icon: 'fa-solid fa-file-lines fa-2x',
@@ -31,6 +32,7 @@ export default [
         image: '/Publications/Pixie.png',
         authors: 'Long Le, Ryan Lucas, Chen Wang, <b>Chuhao Chen</b>, Dinesh Jayaraman, Eric Eaton, Lingjie Liu',
         publisher: '<span><b>arXiv 2025</b></span>',
+        bgType: '', // no background
         buttons: [
             {
                 icon: 'fa-solid fa-file-lines fa-2x',
@@ -55,7 +57,8 @@ export default [
         title: 'PhysCtrl: Generative Physics for Controllable and Physics-Grounded Video Generation',
         image: '/Publications/PhysCtrl.png',
         authors: 'Chen Wang*, <b>Chuhao Chen*</b>, Yiming Huang, Zhiyang Dou, Yuan Liu, Jiatao Gu, Lingjie Liu',
-        publisher: '<span><b>NeurIPS 2025</b></span>',
+        publisher: '<span class="highlight-pub"><b>NeurIPS 2025</b></span>',
+        bgType: 'purple',
         buttons: [
             {
                 icon: 'fa-solid fa-file-lines fa-2x',
@@ -81,6 +84,7 @@ export default [
         image: '/Publications/Vid2Sim.png',
         authors: '<b>Chuhao Chen</b>, Zhiyang Dou, Chen Wang, Yiming Huang, Anjun Chen, Qiao Feng, Jiatao Gu, Lingjie Liu',
         publisher: '<span class="highlight-pub">CVPR 2025</span>',
+        bgType: 'yellow',
         buttons: [
             {
                 icon: 'fa-solid fa-file-lines fa-2x',
@@ -111,6 +115,7 @@ export default [
         image: '/Publications/MLTD.png',
         authors: '<b>Chuhao Chen</b>, Yuze He, Tzu-Mao Li',
         publisher: 'ACM Transactions on Graphics (Proceedings of <span class="highlight-pub">SIGGRAPH 2024</span>)',
+        bgType: 'yellow',
         buttons: [
             {
                 icon: 'fa-solid fa-file-lines fa-2x',
