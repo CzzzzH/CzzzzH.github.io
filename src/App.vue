@@ -167,7 +167,7 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-      <p class="footer-text">Last Updated: Jan 2026</p>
+      <p class="footer-text">Last Updated: Jan. 2026</p>
       <p class="footer-text">© 2026 Chuhao Chen</p>
     </footer>
   </div>
