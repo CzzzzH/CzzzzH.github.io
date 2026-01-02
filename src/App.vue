@@ -159,8 +159,8 @@
           /> 
           <Services :padding-left="30" />
           </div>
-          <!-- <div ref="clustrMapContainer"></div> -->
-          <!-- <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=THVTe2YB5KOZKR5GWWlFYej4NecUmnTKFe_CjsTVzLI&co=2d78ad&cmo=9b00ff&cmn=ff5353&ct=ffffff'></script> -->
+          <!-- ClustrMaps widget (hidden but script still loads for tracking) -->
+          <div ref="clustrMapContainer" class="clustrmaps-hidden"></div>
         </div>
       </el-main>
     </el-container>
@@ -291,6 +291,17 @@ export default defineComponent({
   font-size: 18px;
   font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 400;
+}
+
+/* Hide ClustrMaps widget but keep script for tracking */
+.clustrmaps-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .container {
