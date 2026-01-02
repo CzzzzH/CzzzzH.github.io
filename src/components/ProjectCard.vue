@@ -350,4 +350,42 @@ export default defineComponent({
 .project-card:has(.card-bg:hover, .card-text:hover) .icon-light {
   background: var(--icon-color-light);
 }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .card-text {
+    font-size: 36px !important;
+    left: 20px !important;
+  }
+
+  .icon-layer {
+    width: calc(var(--icon-size) * 0.6) !important;
+    height: calc(var(--icon-size) * 0.6) !important;
+  }
+
+  .category-description {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .description-line {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-text {
+    font-size: 28px !important;
+    left: 15px !important;
+  }
+
+  .icon-layer {
+    width: calc(var(--icon-size) * 0.4) !important;
+    height: calc(var(--icon-size) * 0.4) !important;
+  }
+
+  .description-line {
+    font-size: 14px;
+  }
+}
 </style>

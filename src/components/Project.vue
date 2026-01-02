@@ -217,12 +217,48 @@ export default defineComponent({
 @media (max-width: 768px) {
   .project {
     flex-direction: column;
+    gap: 20px;
+    padding: 15px;
   }
   
   .project-image {
     width: 100%;
     height: auto;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 4 / 3;
+  }
+
+  .project-title {
+    font-size: 20px;
+  }
+
+  .project-description {
+    font-size: 16px;
+  }
+
+  .project-buttons {
+    gap: 10px;
+  }
+
+  .button-text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project {
+    padding: 10px;
+  }
+
+  .project-title {
+    font-size: 18px;
+  }
+
+  .project-description {
+    font-size: 14px;
+  }
+
+  .button-text {
+    font-size: 12px;
   }
 }
 </style>

@@ -287,12 +287,56 @@ export default defineComponent({
 @media (max-width: 768px) {
   .publication {
     flex-direction: column;
+    gap: 20px;
+    padding: 15px;
   }
   
   .publication-image {
     width: 100%;
     height: auto;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 4 / 3;
+  }
+
+  .publication-title {
+    font-size: 20px;
+  }
+
+  .publication-authors {
+    font-size: 16px;
+  }
+
+  .publication-publisher {
+    font-size: 18px;
+  }
+
+  .publication-buttons {
+    gap: 10px;
+  }
+
+  .button-text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .publication {
+    padding: 10px;
+  }
+
+  .publication-title {
+    font-size: 18px;
+  }
+
+  .publication-authors {
+    font-size: 14px;
+  }
+
+  .publication-publisher {
+    font-size: 16px;
+  }
+
+  .button-text {
+    font-size: 12px;
   }
 }
 </style>
@@ -302,5 +346,11 @@ export default defineComponent({
   color: rgb(190, 0, 0);
   font-weight: 700;
   font-size: 22px;
+}
+
+@media (max-width: 768px) {
+  .highlight-pub {
+    font-size: 18px;
+  }
 }
 </style>

@@ -113,5 +113,41 @@ export default defineComponent({
   color: #4b4fc2;
   font-weight: 400;
 }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .service {
+    padding-left: 15px !important;
+  }
+
+  .service-title {
+    font-size: 20px;
+  }
+
+  .service-content {
+    font-size: 18px;
+    margin-left: 20px;
+  }
+
+  .talk-entry {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .service {
+    padding-left: 10px !important;
+  }
+
+  .service-title {
+    font-size: 18px;
+  }
+
+  .service-content {
+    font-size: 16px;
+    margin-left: 15px;
+  }
+}
 </style>
 

@@ -210,5 +210,43 @@ const diamondCy = computed(() => props.boxOffsetY);
   white-space: nowrap;
   border: 0;
 }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .section-title-heading {
+    font-size: calc(var(--fs) * 0.6) !important;
+    margin-top: calc(var(--mt) * 0.6) !important;
+    margin-bottom: calc(var(--mb) * 0.6) !important;
+    margin-left: 10px !important;
+  }
+
+  .section-title-heading::before {
+    width: calc(var(--box-size) * 0.6) !important;
+    height: calc(var(--box-size) * 0.6) !important;
+  }
+
+  .bg-image-wrapper {
+    width: calc(var(--img-width) * 0.5) !important;
+    height: calc(var(--img-height) * 0.5) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title-heading {
+    font-size: calc(var(--fs) * 0.5) !important;
+    margin-top: calc(var(--mt) * 0.4) !important;
+    margin-bottom: calc(var(--mb) * 0.4) !important;
+    margin-left: 5px !important;
+  }
+
+  .section-title-heading::before {
+    width: calc(var(--box-size) * 0.5) !important;
+    height: calc(var(--box-size) * 0.5) !important;
+  }
+
+  .bg-image-wrapper {
+    display: none; /* Hide background image on very small screens */
+  }
+}
 </style>
 
