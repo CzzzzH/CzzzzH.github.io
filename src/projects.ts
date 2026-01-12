@@ -92,7 +92,8 @@ export default [
         category: 'Game',
         title: 'CASAL',
         image: '/Game/casal.png',
-        description: 'A Location-based VR puzzle game developped with <b>Unity3D</b>. <br/>' +
+        description: 'The graduation project for my <b>B.A. degree (Digital Media Art)</b>. <br/>' + 
+            'A Location-based VR puzzle game developped with <b>Unity3D</b>. <br/> ' +
             'We designed several episodes containing 4 different interacting ways in the demo. <br/> ' +
             'The game can be played on either PC platform or HTC Vive platform through SteamVR. ',
         buttons: [
@@ -146,6 +147,46 @@ export default [
                 icon: 'fab fa-github fa-2x',
                 text: 'Code',
                 link: 'https://github.com/CzzzzH/ETSHelper'
+            },
+        ]
+    },
+    {
+        id: 11,
+        category: 'Miscellaneous',
+        title: 'EGGN in Loma',
+        image: '/Miscellaneous/EGNN.png',
+        description: 'An implementation of <b>Equivariant Graph Neural Networks</b> in programming language <b>Loma</b>. <br/>' + 
+            'We implemented EGNN entirely using Loma-generated differentiable SIMD operators, integrated it with PyTorch, and validated its correctness, performance, and effectiveness on molecular property prediction tasks (QM9).',
+        buttons: [
+            {   
+                icon: 'fab fa-github fa-2x',
+                text: 'Code',
+                link: 'https://github.com/CzzzzH/EGNN_loma'
+            },
+            {   
+                icon: 'fa-solid fa-file-pdf fa-2x',
+                text: 'Report',
+                link: '/Miscellaneous/EGNN.pdf'
+            },
+        ]
+    },
+    {
+        id: 12,
+        category: 'Vision',
+        title: '2D-GSIR',
+        image: '/Vision/gsir.png',
+        description: 'An inverse-rendering framework based on <b>2D Gaussian Splatting</b>. <br/>' + 
+            'We replace the 3DGS in the GS-IR paper with 2DGS to recover scene geometry, normals, materials, and lighting more accurately.',
+        buttons: [
+            {   
+                icon: 'fab fa-github fa-2x',
+                text: 'Code',
+                link: 'https://github.com/CzzzzH/GS-IR'
+            },
+            {   
+                icon: 'fa-solid fa-file-pdf fa-2x',
+                text: 'Report',
+                link: '/Vision/gsir.pdf'
             },
         ]
     },

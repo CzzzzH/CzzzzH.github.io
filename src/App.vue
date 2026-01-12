@@ -74,6 +74,13 @@
                 :image-x="300"
                 :image-y="70" 
                 image-src="/publications_icon.png"
+                :textbox-lines="[
+                  'I love concise and elegant research——solving problems with the minimal ideas that work best.',
+                ]"  
+                :textbox-offset-x="480"
+                :textbox-offset-y="60"
+                :textbox-tilt="0" 
+                :textbox-font-size="20"
             />    
             <Publication 
               v-for="pub in pubs" 
@@ -96,6 +103,15 @@
               :marginTop="80"
               :marginLeft="900"
               image-src="/projects_icon.png"
+              :textbox-lines="[
+                'I follow my curiosity, which led to diverse side projects and surprising outcomes.',
+                'I am happy to share some of these interesting small projects with you :)',
+                '<b>(Click the cards to expand)</b>'
+              ]"  
+              :textbox-offset-x="-760"
+              :textbox-offset-y="50"
+              :textbox-tilt="0" 
+              :textbox-font-size="21"
           />   
           <ProjectCard 
             category="Graphics" 
@@ -212,7 +228,7 @@ export default defineComponent({
       }
     })
 
-    return {
+    return {    
       categories,
       category_id,
       pubs,

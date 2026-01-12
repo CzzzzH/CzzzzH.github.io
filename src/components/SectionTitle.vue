@@ -25,6 +25,10 @@
       '--img-opacity': imageOpacity,
       '--bg-img-width': bgImageWidth + '%',
       '--bg-img-height': bgImageHeight + '%',
+      '--textbox-x': textboxOffsetX + 'px',
+      '--textbox-y': textboxOffsetY + '%',
+      '--textbox-tilt': textboxTilt + 'deg',
+      '--textbox-font-size': textboxFontSize + 'px',
     }"
   >
     <!-- Independent image layer (behind text and diamond) -->
@@ -44,6 +48,11 @@
 
     <!-- Accessible text (screen readers read this once) -->
     <span class="sr-only">{{ text }}</span>
+
+    <!-- Tilted textbox near the title -->
+    <div v-if="textboxLines && textboxLines.length > 0" class="textbox" aria-hidden="true">
+      <p v-for="(line, index) in textboxLines.slice(0, 4)" :key="index" class="textbox-line" v-html="line"></p>
+    </div>
   </span>
 </template>
 
@@ -94,6 +103,16 @@ const props = defineProps({
   bgImageWidth: { type: Number, default: 100 },
   // Background image element height (percentage of wrapper)
   bgImageHeight: { type: Number, default: 100 },
+  // Textbox lines (array of up to 4 sentences)
+  textboxLines: { type: Array, default: () => [] },
+  // Textbox horizontal offset (pixels from left)
+  textboxOffsetX: { type: Number, default: 400 },
+  // Textbox vertical offset (percentage of container height)
+  textboxOffsetY: { type: Number, default: 50 },
+  // Textbox tilt angle in degrees (negative = tilt left, positive = tilt right)
+  textboxTilt: { type: Number, default: -5 },
+  // Textbox font size in pixels
+  textboxFontSize: { type: Number, default: 22},
 });
 
 const cap = computed(() => props.text.slice(0, 1));
@@ -211,6 +230,31 @@ const diamondCy = computed(() => props.boxOffsetY);
   border: 0;
 }
 
+/* Tilted textbox near the title */
+.textbox {
+  position: absolute;
+  left: var(--textbox-x);
+  top: var(--textbox-y);
+  transform: translateY(-50%) rotate(var(--textbox-tilt));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  z-index: 4;
+  pointer-events: auto; /* Enable pointer events for links */
+}
+
+.textbox-line {
+  margin: 0;
+  font-size: var(--textbox-font-size);
+  font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  color: rgb(76, 61, 96);
+  line-height: 1.3; /* Match biography line-height */
+  letter-spacing: normal; /* Reset letter-spacing to match biography */
+  white-space: nowrap;
+} 
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .section-title-heading {
@@ -228,6 +272,10 @@ const diamondCy = computed(() => props.boxOffsetY);
   .bg-image-wrapper {
     width: calc(var(--img-width) * 0.5) !important;
     height: calc(var(--img-height) * 0.5) !important;
+  }
+
+  .textbox {
+    display: none; /* Hide textbox on tablets */
   }
 }
 
