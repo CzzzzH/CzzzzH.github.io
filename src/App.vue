@@ -10,6 +10,8 @@
         <a href="#projects" class="nav-link">Projects</a>
         <span class="nav-separator">/</span>
         <a href="#services" class="nav-link">Services</a>
+        <span class="nav-separator">/</span>
+        <a href="#gallery" class="nav-link">Gallery</a>
       </nav>
     </header>
 
@@ -175,6 +177,32 @@
           /> 
           <Services :padding-left="30" />
           </div>
+          <div id="gallery">
+            <SectionTitle
+                text="GALLERY"
+              :font-size="40"
+              :cap-size="1.6"
+              :box-size="100"
+              :box-offset-x="40"
+              :box-offset-y="48"
+              :image-width="280"
+              :image-height="280"
+              :image-x="230"
+              :image-y="50"
+              :marginTop="100"
+              :marginLeft="920"
+              image-src="/gallery_icon.png"
+              :textbox-lines="[
+                'I miss our Ragdoll cat back at home in Shanghai a lot, so I put some photos of him here.',
+                'Will add more photos later :)'
+              ]"
+              :textbox-offset-x="-820"
+              :textbox-offset-y="50"
+              :textbox-tilt="0"
+              :textbox-font-size="21"
+            />
+            <Gallery />
+          </div>
           <!-- ClustrMaps widget (hidden but script still loads for tracking) -->
           <div ref="clustrMapContainer" class="clustrmaps-hidden"></div>
         </div>
@@ -183,7 +211,7 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-      <p class="footer-text">Last Updated: Jan. 2026</p>
+      <p class="footer-text">Last Updated: Mar. 2026</p>
       <p class="footer-text">© 2026 Chuhao Chen</p>
     </footer>
   </div>
@@ -195,6 +223,7 @@ import ProjectCard from './components/ProjectCard.vue'
 import Publication from './components/Publication.vue'
 import SectionTitle from './components/SectionTitle.vue'
 import Services from './components/Services.vue'
+import Gallery from './components/Gallery.vue'
 import projects from './projects'
 import publications from './publications'
 
@@ -205,6 +234,7 @@ export default defineComponent({
     Publication,
     SectionTitle,
     Services,
+    Gallery,
   },
   
   setup() {

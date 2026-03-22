@@ -12,7 +12,7 @@
     </div>
     <div class="service-item">
       <p class="service-title">Reviewer:</p>
-      <p class="service-content">CVPR (2025, 2026), ICCV (2025), Pacific Graphics (2024)</p>
+      <p class="service-content">CVPR (2025, 2026), ICCV (2025), BMVC (2026), Pacific Graphics (2024)</p>
     </div>
     <div class="service-item">
       <p class="service-title">Talk:</p>
