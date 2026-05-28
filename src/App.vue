@@ -41,9 +41,10 @@
               </div>
               <div class="bio-panel">
                 <p class="bio">
-                  I currently work as a Research Assistant at
-                  <a href="https://www.upenn.edu/" class="bio-link">University of Pennsylvania</a>, advised by
-                  <a href="https://lingjie0206.github.io/" class="bio-link">Prof. Lingjie Liu</a>. Previously, I obtained my master degree in Computer Science at
+                  I am currently a Research Intern at
+                  <a href="https://www.robbyant.com/" class="bio-link">Robbyant</a> and also an incoming PhD student in Computer Science at <a href="https://www.cmu.edu/" class="bio-link">Carnegie Mellon University</a>.
+                  Previously, I was a Reserach Assistant at <a href="https://www.upenn.edu/" class="bio-link">University of Pennsylvania</a>. 
+                  I obtained my master degree in Computer Science at
                   <a href="https://ucsd.edu/" class="bio-link">UC San Diego</a>, where I had a pleasure time working with
                   <a href="https://cseweb.ucsd.edu/~tzli/" class="bio-link">Prof. Tzu-Mao Li</a>. I also interned in
                   <a href="https://cseweb.ucsd.edu/~haosu/" class="bio-link">SU Lab</a> at UCSD, working with <a href="https://cseweb.ucsd.edu/~haosu/" class="bio-link">Prof. Hao Su</a> and
@@ -211,7 +212,7 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-      <p class="footer-text">Last Updated: Mar. 2026</p>
+      <p class="footer-text">Last Updated: May. 2026</p>
       <p class="footer-text">© 2026 Chuhao Chen</p>
     </footer>
   </div>
