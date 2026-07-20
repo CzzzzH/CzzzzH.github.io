@@ -1,5 +1,34 @@
 export default [
     {
+        id: 6,
+        category: 'Publications',
+        title: 'PhysStream: Streaming Physics-Grounded Video Generation with Structured Scene Memory and Fine-Grained Motion Control',
+        image: '/Publications/PhysStream.png',
+        authors: '<b>Chuhao Chen</b>, Peter Wonka, Chaoyang Wang, Chen Wang, Qiao Feng, Sergey Tulyakov, Lingjie Liu',
+        publisher: '<span class="highlight-pub">SIGGRAPH Asia 2026</span>',
+        bgType: 'yellow', // 'yellow', 'purple', or '' for no background
+        buttons: [
+            {
+                icon: 'fa-solid fa-file-lines fa-2x',
+                text: 'Project Page',
+                link: '/PhysStream/index.html',
+                disabled: true
+            },
+            {
+                icon: 'fa-solid fa-file-pdf fa-2x',
+                text: 'Paper',
+                link: '/PhysStream/PhysStream.pdf',
+                disabled: true
+            },
+            {
+                icon: 'fab fa-github fa-2x',
+                text: 'Code',
+                link: 'https://github.com/CzzzzH/PhysStream',
+                disabled: true
+            }
+        ]
+    },
+    {
         id: 5,
         category: 'Publications',
         title: 'FreeArt3D: Training-Free Articulated Object Generation using 3D Diffusion',
