@@ -7,9 +7,11 @@
         <span class="nav-separator">/</span>
         <a href="#publications" class="nav-link">Publications</a>
         <span class="nav-separator">/</span>
-        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experiences" class="nav-link">Experiences</a>
         <span class="nav-separator">/</span>
         <a href="#services" class="nav-link">Services</a>
+        <span class="nav-separator">/</span>
+        <a href="#projects" class="nav-link">Projects</a>
         <span class="nav-separator">/</span>
         <a href="#gallery" class="nav-link">Gallery</a>
       </nav>
@@ -22,7 +24,7 @@
             <div class="hero-left">
               <h1 class="name">Chuhao Chen</h1>
               <div class="action-row">
-                <a href="mailto:morphling233@gmail.com" class="action-button">
+                <a href="mailto:chuhaoc@andrew.cmu.edu" class="action-button">
                   <i class="fas fa-envelope"></i>
                   <span>Email</span>
                 </a>
@@ -30,9 +32,9 @@
                   <i class="fab fa-github"></i>
                   <span>GitHub</span>
                 </a>
-                <a href="https://www.semanticscholar.org/author/Chuhao-Chen/2366153083" class="action-button" target="_blank" rel="noopener noreferrer">
-                  <i class="fas fa-graduation-cap"></i>
-                  <span>Scholar</span>
+                <a href="https://scholar.google.com/citations?user=DHzM5IgAAAAJ&amp;hl=en" class="action-button" target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-google-scholar" aria-hidden="true"></i>
+                  <span>Google Scholar</span>
                 </a>
                 <a href="https://www.linkedin.com/in/chuhao-chen-317832231/" class="action-button" target="_blank" rel="noopener noreferrer">
                   <i class="fab fa-linkedin-in"></i>
@@ -41,8 +43,8 @@
               </div>
               <div class="bio-panel">
                 <p class="bio">
-                  I am currently a Research Intern at
-                  <a href="https://www.robbyant.com/" class="bio-link">Robbyant</a> and also an incoming PhD student in Computer Science at <a href="https://www.cmu.edu/" class="bio-link">Carnegie Mellon University</a>.
+                  I am a PhD student in Computer Science at <a href="https://www.cmu.edu/" class="bio-link">Carnegie Mellon University</a>, co-advised<br class="bio-advisor-break">
+                  by <a href="https://www.cs.cmu.edu/~junyanz/" class="bio-link advisor-link">Prof. Jun-Yan Zhu</a> and <a href="https://www.cs.cmu.edu/~minchenl/" class="bio-link advisor-link">Prof. Minchen Li</a>.
                   Previously, I was a Reserach Assistant at <a href="https://www.upenn.edu/" class="bio-link">University of Pennsylvania</a>. 
                   I obtained my master degree in Computer Science at
                   <a href="https://ucsd.edu/" class="bio-link">UC San Diego</a>, where I had a pleasure time working with
@@ -91,6 +93,56 @@
               :publication="pub"
             />
           </div>
+          <section id="experiences" aria-label="Experiences">
+            <SectionTitle
+              text="EXPERIENCES"
+              :font-size="39"
+              :cap-size="1.6"
+              :box-size="105"
+              :box-offset-x="45"
+              :box-offset-y="48"
+              :image-width="350"
+              :image-height="250"
+              :image-x="314"
+              :image-y="50"
+              :marginTop="119"
+              :marginLeft="900"
+              image-src="/experiences_icon.png"
+            />
+            <article class="experience-entry">
+              <a href="https://github.com/Robbyant" class="experience-logo-link" aria-label="RobbyAnt on GitHub">
+                <img src="/Experiences/robbyant.png" class="experience-logo" alt="RobbyAnt logo" width="128" height="128" loading="lazy">
+              </a>
+              <div class="experience-details">
+                <div class="experience-heading">
+                  <h3><a href="https://github.com/Robbyant" class="experience-company">RobbyAnt</a></h3>
+                  <p class="experience-dates">May 2026 - Aug. 2026</p>
+                </div>
+                <p class="experience-role">Research Intern</p>
+                <p class="experience-mentor">Mentor: <a href="https://justimyhxu.github.io/" class="bio-link">Dr. Yinghao Xu</a></p>
+              </div>
+            </article>
+          </section>
+          <div id="services">
+            <SectionTitle
+                text="SERVICES"
+              :font-size="40"
+              :cap-size="1.6"
+              :box-size="105"
+              :box-offset-x="45"
+              :box-offset-y="55"
+              :image-width="450"
+              :image-height="400"
+              :image-x="330"
+              :image-y="150"
+              :marginTop="120"
+              :marginBottom="100"
+              :bgImageWidth="70"
+              :bgImageHeight="70"
+              image-src="/services_icon.png"
+          />
+          <Services :padding-left="30" />
+          </div>
           <div id="projects">
             <SectionTitle 
                 text="PROJECTS" 
@@ -103,7 +155,7 @@
               :image-height="300"
               :image-x="250"
               :image-y="70"
-              :marginTop="80"
+              :marginTop="110"
               :marginLeft="900"
               image-src="/projects_icon.png"
               :textbox-lines="[
@@ -158,26 +210,6 @@
             icon-color-dark="#8fa5b8"
           />
           </div>
-          <div id="services">
-            <SectionTitle 
-                text="SERVICES" 
-              :font-size="40"
-              :cap-size="1.6"
-              :box-size="105"
-              :box-offset-x="45"
-              :box-offset-y="55" 
-              :image-width="450"
-              :image-height="400"
-              :image-x="330"
-              :image-y="150" 
-              :marginTop="120"
-              :marginBottom="100"
-              :bgImageWidth="70"
-              :bgImageHeight="70"
-              image-src="/services_icon.png"
-          /> 
-          <Services :padding-left="30" />
-          </div>
           <div id="gallery">
             <SectionTitle
                 text="GALLERY"
@@ -190,14 +222,14 @@
               :image-height="280"
               :image-x="230"
               :image-y="50"
-              :marginTop="100"
-              :marginLeft="920"
+              :marginTop="130"
+              :marginLeft="20"
               image-src="/gallery_icon.png"
               :textbox-lines="[
                 'I miss our Ragdoll cat back at home in Shanghai a lot, so I put some photos of him here.',
                 'Will add more photos later :)'
               ]"
-              :textbox-offset-x="-820"
+              :textbox-offset-x="440"
               :textbox-offset-y="50"
               :textbox-tilt="0"
               :textbox-font-size="21"
@@ -212,7 +244,7 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-      <p class="footer-text">Last Updated: May. 2026</p>
+      <p class="footer-text">Last Updated: Sep. 2026</p>
       <p class="footer-text">© 2026 Chuhao Chen</p>
     </footer>
   </div>
@@ -494,7 +526,83 @@ export default defineComponent({
   letter-spacing: 0.3px;  
 }
 
+.advisor-link {
+  white-space: nowrap;
+}
+
+#experiences :deep(.bg-image-wrapper) {
+  margin-top: -40px;
+}
+
+.experience-entry {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  width: min(620px, 100%);
+  margin-left: auto;
+  margin-right: 110px;
+  padding: 0 0 20px;
+  color: #000;
+}
+
+.experience-logo-link {
+  flex: 0 0 128px;
+}
+
+.experience-logo {
+  display: block;
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+}
+
+.experience-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.experience-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.experience-heading h3 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.experience-company {
+  color: #000;
+  text-decoration: none;
+}
+
+.experience-company:hover,
+.experience-company:focus-visible {
+  text-decoration: underline;
+}
+
+.experience-dates {
+  margin: 0;
+  font-size: 22px;
+  color: #555;
+}
+
+.experience-role,
+.experience-mentor {
+  margin: 4px 0 0;
+  font-size: 22px;
+  line-height: 1.5;
+}
+
 @media (max-width: 960px) {
+  .experience-entry {
+    margin-right: 0;
+  }
+
   .site-header {
     padding: 15px 20px;
   }
@@ -542,7 +650,46 @@ export default defineComponent({
   }
 }
 
+@media (max-width: 768px) {
+  #experiences :deep(.section-title-heading) {
+    --diamond-half: 44.548px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #experiences :deep(.section-title-heading) {
+    --diamond-half: 37.123px !important;
+  }
+}
+
 @media (max-width: 600px) {
+  .experience-entry {
+    align-items: flex-start;
+    gap: 18px;
+    width: auto;
+    margin: 0;
+    padding: 8px 4px 20px;
+  }
+
+  .experience-logo-link {
+    flex-basis: 72px;
+  }
+
+  .experience-logo {
+    width: 72px;
+    height: 72px;
+  }
+
+  .experience-heading h3 {
+    font-size: 23px;
+  }
+
+  .experience-dates,
+  .experience-role,
+  .experience-mentor {
+    font-size: 16px;
+  }
+
   .site-header {
     padding: 10px 15px;
     justify-content: center;
