@@ -43,8 +43,7 @@
               </div>
               <div class="bio-panel">
                 <p class="bio">
-                  I am a PhD student in Computer Science at <a href="https://www.cmu.edu/" class="bio-link">Carnegie Mellon University</a>, co-advised<br class="bio-advisor-break">
-                  by <a href="https://www.cs.cmu.edu/~junyanz/" class="bio-link advisor-link">Prof. Jun-Yan Zhu</a> and <a href="https://www.cs.cmu.edu/~minchenl/" class="bio-link advisor-link">Prof. Minchen Li</a>.
+                  I am a PhD student in Computer Science at <a href="https://www.cmu.edu/" class="bio-link">Carnegie Mellon University</a>, co-advised by <a href="https://www.cs.cmu.edu/~junyanz/" class="bio-link">Prof. Jun-Yan Zhu</a> and <a href="https://www.cs.cmu.edu/~minchenl/" class="bio-link">Prof. Minchen Li</a>.
                   Previously, I was a Reserach Assistant at <a href="https://www.upenn.edu/" class="bio-link">University of Pennsylvania</a>. 
                   I obtained my master degree in Computer Science at
                   <a href="https://ucsd.edu/" class="bio-link">UC San Diego</a>, where I had a pleasure time working with
@@ -93,36 +92,7 @@
               :publication="pub"
             />
           </div>
-          <section id="experiences" aria-label="Experiences">
-            <SectionTitle
-              text="EXPERIENCES"
-              :font-size="39"
-              :cap-size="1.6"
-              :box-size="105"
-              :box-offset-x="45"
-              :box-offset-y="48"
-              :image-width="350"
-              :image-height="250"
-              :image-x="314"
-              :image-y="50"
-              :marginTop="119"
-              :marginLeft="900"
-              image-src="/experiences_icon.png"
-            />
-            <article class="experience-entry">
-              <a href="https://github.com/Robbyant" class="experience-logo-link" aria-label="RobbyAnt on GitHub">
-                <img src="/Experiences/robbyant.png" class="experience-logo" alt="RobbyAnt logo" width="128" height="128" loading="lazy">
-              </a>
-              <div class="experience-details">
-                <div class="experience-heading">
-                  <h3><a href="https://github.com/Robbyant" class="experience-company">RobbyAnt</a></h3>
-                  <p class="experience-dates">May 2026 - Aug. 2026</p>
-                </div>
-                <p class="experience-role">Research Intern</p>
-                <p class="experience-mentor">Mentor: <a href="https://justimyhxu.github.io/" class="bio-link">Dr. Yinghao Xu</a></p>
-              </div>
-            </article>
-          </section>
+          <Experiences />
           <div id="services">
             <SectionTitle
                 text="SERVICES"
@@ -256,6 +226,7 @@ import ProjectCard from './components/ProjectCard.vue'
 import Publication from './components/Publication.vue'
 import SectionTitle from './components/SectionTitle.vue'
 import Services from './components/Services.vue'
+import Experiences from './components/Experiences.vue'
 import Gallery from './components/Gallery.vue'
 import projects from './projects'
 import publications from './publications'
@@ -267,6 +238,7 @@ export default defineComponent({
     Publication,
     SectionTitle,
     Services,
+    Experiences,
     Gallery,
   },
   
@@ -429,9 +401,9 @@ export default defineComponent({
 }
 
 .hero-right {
-  flex: 0 0 320px;
+  flex: 0 0 288px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .name {
@@ -502,10 +474,10 @@ export default defineComponent({
 .photo-frame {
   border: none;
   border-radius: 12px;
-  padding-top: 40px;
+  padding-top: 120px;
 
   background: #ffffff;
-  max-width: 320px;
+  max-width: 288px;
   width: 100%;
 }
 
@@ -526,83 +498,7 @@ export default defineComponent({
   letter-spacing: 0.3px;  
 }
 
-.advisor-link {
-  white-space: nowrap;
-}
-
-#experiences :deep(.bg-image-wrapper) {
-  margin-top: -40px;
-}
-
-.experience-entry {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  width: min(620px, 100%);
-  margin-left: auto;
-  margin-right: 110px;
-  padding: 0 0 20px;
-  color: #000;
-}
-
-.experience-logo-link {
-  flex: 0 0 128px;
-}
-
-.experience-logo {
-  display: block;
-  width: 128px;
-  height: 128px;
-  object-fit: contain;
-}
-
-.experience-details {
-  flex: 1;
-  min-width: 0;
-}
-
-.experience-heading {
-  display: flex;
-  align-items: baseline;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 8px 24px;
-}
-
-.experience-heading h3 {
-  margin: 0;
-  font-size: 28px;
-  font-weight: 700;
-}
-
-.experience-company {
-  color: #000;
-  text-decoration: none;
-}
-
-.experience-company:hover,
-.experience-company:focus-visible {
-  text-decoration: underline;
-}
-
-.experience-dates {
-  margin: 0;
-  font-size: 22px;
-  color: #555;
-}
-
-.experience-role,
-.experience-mentor {
-  margin: 4px 0 0;
-  font-size: 22px;
-  line-height: 1.5;
-}
-
 @media (max-width: 960px) {
-  .experience-entry {
-    margin-right: 0;
-  }
-
   .site-header {
     padding: 15px 20px;
   }
@@ -650,46 +546,7 @@ export default defineComponent({
   }
 }
 
-@media (max-width: 768px) {
-  #experiences :deep(.section-title-heading) {
-    --diamond-half: 44.548px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  #experiences :deep(.section-title-heading) {
-    --diamond-half: 37.123px !important;
-  }
-}
-
 @media (max-width: 600px) {
-  .experience-entry {
-    align-items: flex-start;
-    gap: 18px;
-    width: auto;
-    margin: 0;
-    padding: 8px 4px 20px;
-  }
-
-  .experience-logo-link {
-    flex-basis: 72px;
-  }
-
-  .experience-logo {
-    width: 72px;
-    height: 72px;
-  }
-
-  .experience-heading h3 {
-    font-size: 23px;
-  }
-
-  .experience-dates,
-  .experience-role,
-  .experience-mentor {
-    font-size: 16px;
-  }
-
   .site-header {
     padding: 10px 15px;
     justify-content: center;
