@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>if (new URLSearchParams(location.search).has('embed')) document.documentElement.classList.add('embedded');</script>
+<title>PhysStream — AR Inference Rollout</title>
+<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans" rel="stylesheet">
+<link rel="stylesheet" href="static/css/pipeline.css">
+</head>
+<body>
+
+<!-- Hidden SVG: defines the grayscale noise filter used by all rgb-box noise-layers -->
+<svg width="0" height="0" style="position:absolute;pointer-events:none">
+  <defs>
+    <filter id="grain-noise" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.92" numOctaves="2" seed="3" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="
+        0.32 0.32 0.32 0 0.18
+        0.32 0.32 0.32 0 0.18
+        0.32 0.32 0.32 0 0.18
+        0    0    0    0 1"/>
+    </filter>
+  </defs>
+</svg>
+
+<div id="viewport">
+<div id="stage-wrap">
+
+<div id="header">
+  <h1>PhysStream <span class="light">— Autoregressive Inference Rollout</span></h1>
+  <span class="step-indicator" id="step-ind" style="display:none;">Setup</span>
+</div>
+
+<!-- Column headers (Interaction is now visually separated) -->
+<div class="col-label" id="col-user"   style="left: 140px; top: 88px; width: 130px;">Interaction</div>
+<div class="col-label" id="col-mem"    style="left: 330px; top: 88px; width: 272px;">Scene Memory</div>
+<div class="col-label" id="col-frame"  style="left: 579px; top: 88px; width: 200px;">Current Frame</div>
+<div class="col-label" id="col-output" style="left: 1230px; top: 88px; width: 140px;">Output</div>
+
+<div class="row-label" id="lbl-r0" style="left: 8px; top: 171px;">t = 0</div>
+<div class="row-label" id="lbl-r1" style="left: 8px; top: 351px;">t = 1</div>
+<div class="row-label" id="lbl-r2" style="left: 8px; top: 531px;">t = 2</div>
+<div class="row-label" id="lbl-r3" style="left: 8px; top: 531px;">t = 3</div>
+
+<!-- DiT -->
+<div id="network">
+  <div class="net-title">Causal DiT</div>
+  <svg class="net-art" viewBox="0 0 200 480" aria-label="Neural network shared across autoregressive steps" role="img">
+    <g id="net-layers"></g>
+  </svg>
+</div>
+
+<!-- ===================================================== -->
+<!-- ROW 0 (t = 0): all conditions Zero + frame x_0          -->
+<!-- ===================================================== -->
+<div class="box zero-box" id="r0-vel"   style="left: 140px; top: 140px;"><div class="zero-txt">Zero</div></div>
+<div class="box zero-box" id="r0-pos"   style="left: 330px; top: 140px;"><div class="zero-txt">Zero</div></div>
+<div class="box zero-box" id="r0-track" style="left: 472px; top: 140px;"><div class="zero-txt">Zero</div></div>
+<!-- Row 0 frame: x_0 is GIVEN — starts as noise, then "copied" reveals x_0 -->
+<div class="box rgb-box copied" id="r0-frame" style="left: 614px; top: 140px;">
+  <svg class="noise-layer" preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#grain-noise)"/></svg>
+  <div class="scene-layer"></div>
+  <img class="replace" alt="" onload="this.classList.add('loaded')">
+  <span class="tag"><i>x</i><sub><i>0</i></sub></span><span class="name">rgb_00.png</span>
+</div>
+<div class="concat" id="r0-concat" style="left: 770px; top: 165px;"></div>
+<div class="output-frame" id="r0-output" style="left: 1230px; top: 138px;">
+  <div class="scene"></div>
+  <img class="replace" alt="" onload="this.classList.add('loaded')">
+  <span class="name">rgb_00.png</span>
+</div>
+
+<!-- ===================================================== -->
+<!-- ROW 1 (t = 1): c_0 + frame x_1 (will be copied from r0-output) -->
+<!-- ===================================================== -->
+<div class="box vel-box" id="r1-vel" style="left: 140px; top: 320px;">
+  <div class="vblob1"></div><div class="vblob2"></div>
+  <img class="replace" alt="" onload="this.classList.add('loaded')">
+  <span class="tag"><i>c</i><span class="sc"><span class="up">Δ<i>v</i></span><span class="dn"><i>0</i></span></span></span><span class="name">velocity_00.png</span>
+</div>
+<div class="box pos-box" id="r1-pos" style="left: 330px; top: 320px;">
+  <img class="replace" alt="" onload="this.classList.add('loaded')">
+  <span class="tag"><i>c</i><span class="sc"><span class="up">pos</span><span class="dn"><i>0</i></span></span></span><span class="name">position_00.png</span>
+</div>
+<div class="box track-box" id="r1-track" style="left: 472px; top: 320px;">
+  <div class="blob1"></div><div class="blob2"></div><div class="blob3"></div>
+  <img class="replace" alt="" onload="this.classList.add('loaded')">
+  <span class="tag"><i>c</i><span class="sc"><span class="up">track</span><span class="dn"><i>0</i></span></span></span><span class="name">track_00.png</span>
+</div>
+<div class="box rgb-box" id="r1-frame" style="left: 614px; top: 320px;">
+  <svg class="noise-layer" preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#grain-noise)"/></svg>
+  <div class="scene-layer"></div>
+  <img class="replace" alt="" onload="this.classList.add('loaded')">
+  <span class="tag"><i>x</i><sub><i>1</i></sub></span><span class="name">rgb_04.png</span>
+</div>
+<div class="concat" id="r1-concat" style="left: 770px; top: 345px;"></div>
+<div class="output-frame" id="r1-output" style="left: 1230px; top: 318px;">
+  <div class="scene"></div>
+  <img class="replace" alt="" onload="this.classList.add('loaded')">
+  <span class="name">rgb_04.png</span>
+</div>
+<div class="user-badge" id="r1-user-badge" style="left: 66px; top: 351px;"><svg viewBox="0 0 30 30" aria-hidden="true"><rect x="6" y="2" width="18" height="26" rx="9" fill="#fbf8fc" stroke="currentColor" stroke-width="2.2"/><path d="M15 3v10M6 13h18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 6v3" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div>
+
+<!-- ===================================================== -->
+<!-- ROW 2 (t = 2): c_1 + frame x_2                                -->
+<!-- ===================================================== -->
+<div class="box vel-box" id="r2-vel" style="left: 140px; top: 500px;">
+  <div class="vblob1"></div><div class="vblob2"></div>
+  <img class="replace" alt="" onload="this.classList.add('loaded')">
+  <span class="tag"><i>c</i><span class="sc"><span class="up">Δ<i>v</i></span><span class="dn"><i>1</i></span></span></span><span class="name">velocity_04.png</span>
+</div>
+<div class="box pos-box" id="r2-pos" style="left: 330px; top: 500px;">
+  <img class="replace" alt="" onload="this.classList.add('loaded')">
+  <span class="tag"><i>c</i><span class="sc"><span class="up">pos</span><span class="dn"><i>1</i></span></span></span><span class="name">position_04.png</span>
+</div>
+<div class="box track-box" id="r2-track" style="left: 472px; top: 500px;">
+  <div class="blob1"></div><div class="blob2"></div><div class="blob3"></div>
+  <img class="replace" alt="" onload="this.classList.add('loaded')">
+  <span class="tag"><i>c</i><span class="sc"><span class="up">track</span><span class="dn"><i>1</i></span></span></span><span class="name">track_04.png</span>
+</div>
+<div class="box rgb-box" id="r2-frame" style="left: 614px; top: 500px;">
+  <svg class="noise-layer" preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#grain-noise)"/></svg>
+  <div class="scene-layer"></div>
+  <img class="replace" alt="" onload="this.classList.add('loaded')">
+  <span class="tag"><i>x</i><sub><i>2</i></sub></span><span class="name">rgb_08.png</span>
+</div>
+<div class="concat" id="r2-concat" style="left: 770px; top: 525px;"></div>
+<div class="output-frame" id="r2-output" style="left: 1230px; top: 498px;">
+  <div class="scene"></div>
+  <img class="replace" alt="" onload="this.classList.add('loaded')">
+  <span class="name">rgb_08.png</span>
+</div>
+<div class="user-badge" id="r2-user-badge" style="left: 66px; top: 531px;"><svg viewBox="0 0 30 30" aria-hidden="true"><rect x="6" y="2" width="18" height="26" rx="9" fill="#fbf8fc" stroke="currentColor" stroke-width="2.2"/><path d="M15 3v10M6 13h18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 6v3" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div>
+
+<!-- ===================================================== -->
+<!-- ROW 3 (t = 3): sits at top:500 — exactly where row 2 was before compaction.    -->
+<!-- ===================================================== -->
+<div class="box vel-box" id="r3-vel" style="left: 140px; top: 500px;">
+  <div class="vblob1"></div><div class="vblob2"></div>
+  <img class="replace" alt="" onload="this.classList.add('loaded')">
+  <span class="tag"><i>c</i><span class="sc"><span class="up">Δ<i>v</i></span><span class="dn"><i>2</i></span></span></span><span class="name">velocity_08.png</span>
+</div>
+<div class="box pos-box" id="r3-pos" style="left: 330px; top: 500px;">
+  <img class="replace" alt="" onload="this.classList.add('loaded')">
+  <span class="tag"><i>c</i><span class="sc"><span class="up">pos</span><span class="dn"><i>2</i></span></span></span><span class="name">position_08.png</span>
+</div>
+<div class="box track-box" id="r3-track" style="left: 472px; top: 500px;">
+  <div class="blob1"></div><div class="blob2"></div><div class="blob3"></div>
+  <img class="replace" alt="" onload="this.classList.add('loaded')">
+  <span class="tag"><i>c</i><span class="sc"><span class="up">track</span><span class="dn"><i>2</i></span></span></span><span class="name">track_08.png</span>
+</div>
+<div class="box rgb-box" id="r3-frame" style="left: 614px; top: 500px;">
+  <svg class="noise-layer" preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#grain-noise)"/></svg>
+  <div class="scene-layer"></div>
+  <img class="replace" alt="" onload="this.classList.add('loaded')">
+  <span class="tag"><i>x</i><sub><i>3</i></sub></span><span class="name">rgb_12.png</span>
+</div>
+<div class="concat" id="r3-concat" style="left: 770px; top: 525px;"></div>
+<div class="output-frame" id="r3-output" style="left: 1230px; top: 498px;">
+  <div class="scene"></div>
+  <img class="replace" alt="" onload="this.classList.add('loaded')">
+  <span class="name">rgb_12.png</span>
+</div>
+<div class="user-badge" id="r3-user-badge" style="left: 66px; top: 531px;"><svg viewBox="0 0 30 30" aria-hidden="true"><rect x="6" y="2" width="18" height="26" rx="9" fill="#fbf8fc" stroke="currentColor" stroke-width="2.2"/><path d="M15 3v10M6 13h18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 6v3" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div>
+
+<!-- ===================================================== -->
+<!-- Ellipsis dots: below row 3 -->
+<!-- ===================================================== -->
+<div class="ellipsis-dots" id="ellipsis-input" style="left: 669px; top: 625px;">
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+<div class="ellipsis-dots" id="ellipsis-output" style="left: 1290px; top: 625px;">
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<!-- SVG arrows -->
+<svg id="arrows" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="head-ar" viewBox="0 0 12 12" refX="10.75" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M1 2 Q1 1 2 1.5 L10 5.2 Q11.5 6 10 6.8 L2 10.5 Q1 11 1 10Z" fill="#9b81ac"/>
+    </marker>
+    <marker id="head-online" viewBox="0 0 12 12" refX="10.75" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M1 2 Q1 1 2 1.5 L10 5.2 Q11.5 6 10 6.8 L2 10.5 Q1 11 1 10Z" fill="#b06f68"/>
+    </marker>
+    <marker id="head-output" viewBox="0 0 12 12" refX="10.75" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M1 2 Q1 1 2 1.5 L10 5.2 Q11.5 6 10 6.8 L2 10.5 Q1 11 1 10Z" fill="#9b81ac"/>
+    </marker>
+    <marker id="head-user" viewBox="0 0 12 12" refX="10.75" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M1 2 Q1 1 2 1.5 L10 5.2 Q11.5 6 10 6.8 L2 10.5 Q1 11 1 10Z" fill="#9b81ac"/>
+    </marker>
+  </defs>
+</svg>
+
+<div class="lbl online" id="lbl-est-01" style="left: 657px; top: 258px;">Update memory</div>
+<div class="lbl online" id="lbl-est-12" style="left: 657px; top: 438px;">Update memory</div>
+
+
+</div>
+</div>
+
+<div id="controls">
+  <button id="play-btn" aria-label="Play pipeline animation">▶</button>
+  <button id="restart-btn" aria-label="Restart pipeline animation">↺</button>
+  <div class="divider"></div>
+  <div class="speed">
+    <span aria-hidden="true">≫</span>
+    <input aria-label="Animation speed" type="range" id="speed" min="0.5" max="1" step="0.5" value="1">
+    <span id="speed-val">1.0×</span>
+  </div>
+</div>
+
+<script>
+const ASSET_DIR = 'assets/pipeline/';
+document.querySelectorAll('img.replace').forEach(img => {
+  const nameEl = img.parentElement.querySelector('.name');
+  if (nameEl && nameEl.textContent.trim()) {
+    img.src = ASSET_DIR + nameEl.textContent.trim();
+  }
+});
+
+const $ = (id) => document.getElementById(id);
+const SVG_NS = 'http://www.w3.org/2000/svg';
+const arrowsSvg = $('arrows');
+
+let paused = true;
+let speedMul = 1.0;
+let resetSeq = 0;
+let running = false;
+
+const NUM_ROWS = 4;
+const ROW_Y_TOP = [140, 320, 500, 500]; // row 3 takes row 2's original slot (after rows 0/1/2 compact upward)
+
+// Box geometry constants (for arrow construction)
+// User Int = 80, Pos = 270, Track = 412, Frame = 554  → centers 145, 335, 477, 619
+// ⊕: left=710, w=36, center=728
+// DiT: left=940, w=200, right=1140
+// Output: left=1170, w=140, center=1240
+
+async function sleep(ms) {
+  const myToken = resetSeq;
+  let elapsed = 0;
+  const tick = 25;
+  while (elapsed < ms) {
+    if (resetSeq !== myToken) throw new Error('reset');
+    document.getAnimations().forEach(animation => {
+      if (animation.playbackRate !== speedMul) animation.updatePlaybackRate(speedMul);
+    });
+    if (!paused) elapsed += tick * speedMul;
+    await new Promise(r => setTimeout(r, tick));
+  }
+}
+
+function buildLayers() {
+  const layers = $('net-layers');
+  layers.replaceChildren();
+  const xs = [30, 100, 170], ys = [55, 145, 235, 325, 415];
+  function line(x1, y1, x2, y2, klass) {
+    const edge = document.createElementNS(SVG_NS, 'line');
+    Object.entries({x1, y1, x2, y2, class: klass}).forEach(([key, value]) => edge.setAttribute(key, value));
+    layers.appendChild(edge);
+  }
+  for (let layer = 0; layer < xs.length - 1; layer++) {
+    for (const from of ys) for (const to of ys) line(xs[layer], from, xs[layer + 1], to, 'neural-edge');
+  }
+  for (const x of xs) for (const y of ys) {
+    const node = document.createElementNS(SVG_NS, 'circle');
+    Object.entries({cx: x, cy: y, r: 10, class: 'neural-node'}).forEach(([key, value]) => node.setAttribute(key, value));
+    layers.appendChild(node);
+  }
+}
+
+function makeArrow(id, d, klass, markerName) {
+  let path = $(id);
+  if (!path) {
+    path = document.createElementNS(SVG_NS, 'path');
+    path.setAttribute('id', id);
+    arrowsSvg.appendChild(path);
+  }
+  path.setAttribute('class', `arrow ${klass}`);
+  path.setAttribute('d', d);
+  if (markerName) path.setAttribute('marker-end', `url(#head-${markerName})`);
+  else path.removeAttribute('marker-end');
+  const len = path.getTotalLength();
+  // End the shaft inside the filled arrowhead so its round cap cannot protrude.
+  // The trailing gap also preserves the original draw-in animation from offset len.
+  path.style.strokeDasharray = markerName ? `${Math.max(0, len - 6)} ${len + 6}` : len;
+  path.style.strokeDashoffset = len;
+  return path;
+}
+
+function showArrow(id) {
+  const p = $(id);
+  if (!p) return;
+  p.classList.add('show');
+  p.style.strokeDashoffset = 0;
+}
+
+function hideAllArrows() {
+  arrowsSvg.querySelectorAll('.arrow').forEach(p => {
+    p.classList.remove('show');
+    const len = p.getTotalLength();
+    p.style.strokeDashoffset = len;
+  });
+}
+
+function clearAllArrows() {
+  arrowsSvg.querySelectorAll('.arrow').forEach(p => p.remove());
+}
+
+function buildAllArrows() {
+  clearAllArrows();
+
+  for (let t = 0; t < NUM_ROWS; t++) {
+    const yTop = ROW_Y_TOP[t];
+    const trunkY = yTop - 18;
+    const centerY = yTop + 44;
+    const concatY = yTop + 25 + 18;
+
+    // 4 vertical drops from trunk → box top centers (box centers after +60 shift)
+    makeArrow(`a-r${t}-drop-vel`,   `M 205 ${yTop} V ${trunkY + 12}`,             'ar trunk', null);
+    makeArrow(`a-r${t}-drop-pos`,   `M 395 ${trunkY} V ${yTop}`,             'ar trunk', null);
+    makeArrow(`a-r${t}-drop-track`, `M 537 ${trunkY} V ${yTop}`,             'ar trunk', null);
+    makeArrow(`a-r${t}-drop-frame`, `M 679 ${trunkY} V ${yTop}`,             'ar trunk', null);
+
+    // Horizontal trunk above the row, ending at concat circle's center-x (788)
+    makeArrow(`a-r${t}-trunk`,      `M 205 ${trunkY + 12} Q 205 ${trunkY} 217 ${trunkY} H 776 Q 788 ${trunkY} 788 ${trunkY + 12}`,                 'ar trunk', null);
+
+    // Vertical drop from trunk to concat circle's top (lands at circle center-x)
+    makeArrow(`a-r${t}-into-c`,     `M 788 ${trunkY + 12} V ${yTop+20}`,          'ar trunk', 'ar');
+
+    // ⊕ → DiT (with gap, shifted left 2px)
+    makeArrow(`a-r${t}-c-net`,      `M 811 ${concatY} H 911`,     'ar',       'ar');
+
+    // DiT → output (with gap)
+    makeArrow(`a-r${t}-net-out`,    `M 1129 ${centerY} H 1221`,   'output-a', 'output');
+
+    // User badge → vel-box (with gap, shifted left 2px)
+    if (t >= 1) {
+      makeArrow(`a-user-${t}`,     `M 105 ${yTop+44} L 131 ${yTop+44}`,       'user',     'user');
+    }
+  }
+
+  // Online estimate: from x_t (frame box bottom-center) → pos & track of next row
+  for (let t = 0; t < NUM_ROWS - 1; t++) {
+    const fromY = ROW_Y_TOP[t] + 88;
+    const fromX = 679;
+    const toY   = ROW_Y_TOP[t+1];
+    makeArrow(`a-est-${t}-pos`,
+      `M ${fromX} ${fromY+6} C ${fromX} ${fromY+35} 510 ${toY-30} 395 ${toY-6}`,
+      'online', 'online');
+    makeArrow(`a-est-${t}-track`,
+      `M ${fromX} ${fromY+6} C ${fromX} ${fromY+35} 615 ${toY-30} 537 ${toY-6}`,
+      'online', 'online');
+  }
+}
+
+function show(id) { $(id)?.classList.add('show'); }
+function hide(id) { $(id)?.classList.remove('show'); }
+function showLbl(id) { $(id)?.classList.add('show'); }
+
+// =================================================================
+// COPY GHOST: fly a copy of `srcId`'s appearance to `dstId`'s position
+// Then add `.copied` to dstId (which transitions noise → scene).
+// =================================================================
+async function animateCopy(srcId, dstId) {
+  const src = $(srcId);
+  const dst = $(dstId);
+  if (!src || !dst) return;
+
+  // Read computed positions in stage coordinates (1400×760)
+  const cs = getComputedStyle(src);
+  const cd = getComputedStyle(dst);
+  const srcLeft = parseFloat(cs.left);
+  const srcTop  = parseFloat(cs.top);
+  const srcW    = parseFloat(cs.width);
+  const srcH    = parseFloat(cs.height);
+  const dstLeft = parseFloat(cd.left);
+  const dstTop  = parseFloat(cd.top);
+  const dstW    = parseFloat(cd.width);
+  const dstH    = parseFloat(cd.height);
+
+  // Build ghost
+  const ghost = document.createElement('div');
+  ghost.className = 'copy-ghost';
+  ghost.style.left   = srcLeft + 'px';
+  ghost.style.top    = srcTop  + 'px';
+  ghost.style.width  = srcW    + 'px';
+  ghost.style.height = srcH    + 'px';
+  // If the source has a real image, show that instead of the placeholder
+  const srcImg = src.querySelector('img.replace');
+  if (srcImg && srcImg.src) {
+    ghost.classList.add('has-image');
+    const ghostImg = document.createElement('img');
+    ghostImg.src = srcImg.src;
+    ghost.appendChild(ghostImg);
+  }
+  $('stage-wrap').appendChild(ghost);
+
+  // Force reflow so the initial position is applied
+  ghost.getBoundingClientRect();
+
+  // Animate to destination
+  ghost.style.left   = dstLeft + 'px';
+  ghost.style.top    = dstTop  + 'px';
+  ghost.style.width  = dstW    + 'px';
+  ghost.style.height = dstH    + 'px';
+
+  await sleep(900);
+
+  // Reveal the destination frame (noise → scene)
+  dst.classList.add('copied');
+  await sleep(100);
+
+  // Remove ghost (the destination frame now shows the result)
+  ghost.remove();
+}
+
+// =================================================================
+// Animation sequence
+// =================================================================
+async function intro() {
+  $('step-ind').textContent = 'Setup';
+  ['col-user', 'col-mem', 'col-frame', 'col-output', 'network'].forEach(show);
+  await sleep(700);
+}
+
+// Reveal Row 0: SPECIAL — rgb_00.png is given. Show inputs + flow into ⊕ → DiT,
+// but NO DiT pulse and NO output side. Row 0's output will be revealed together
+// with Row 1's output in the first DiT call (DiT processes slot 0 + slot 1 jointly).
+async function revealRow0() {
+  $('step-ind').textContent = 'Step 0:  x_0 (given)';
+  show('lbl-r0');
+  await sleep(150);
+
+  show('r0-vel');   await sleep(100);
+  show('r0-pos');   await sleep(100);
+  show('r0-track'); await sleep(150);
+
+  // r0-frame has .copied in HTML — appears directly as rgb_00.png, no noise phase
+  show('r0-frame');
+  await sleep(500);
+
+  // Show Row 0's input flow into ⊕ → DiT (no pulse, no output)
+  showArrow(`a-r0-drop-vel`);
+  showArrow(`a-r0-drop-pos`);
+  showArrow(`a-r0-drop-track`);
+  showArrow(`a-r0-drop-frame`);
+  await sleep(120);
+  showArrow(`a-r0-trunk`);
+  await sleep(300);
+  showArrow(`a-r0-into-c`);
+  show(`r0-concat`);
+  await sleep(300);
+  showArrow(`a-r0-c-net`);
+  await sleep(550);
+}
+
+// Process row t (t ≥ 1): drops + trunk + ⊕ + arrow into DiT + DiT pulse + arrow out + output.
+// For t == 1, this is the FIRST DiT call — also reveals Row 0's output side together
+// (since the same DiT call jointly produces x_0 and x_1 with causal attention).
+// After output appears, it flies back to overlay the noise current-frame.
+async function processRow(t) {
+  showArrow(`a-r${t}-drop-vel`);
+  showArrow(`a-r${t}-drop-pos`);
+  showArrow(`a-r${t}-drop-track`);
+  showArrow(`a-r${t}-drop-frame`);
+  await sleep(120);
+  showArrow(`a-r${t}-trunk`);
+  await sleep(300);
+  showArrow(`a-r${t}-into-c`);
+  show(`r${t}-concat`);
+  await sleep(350);
+
+  showArrow(`a-r${t}-c-net`);
+  await sleep(420);
+
+  $('network').classList.add('pulse');
+  await sleep(750);
+  $('network').classList.remove('pulse');
+
+  // For the first DiT call (t == 1), also reveal Row 0's output side simultaneously
+  if (t === 1) {
+    showArrow('a-r0-net-out');
+  }
+  showArrow(`a-r${t}-net-out`);
+  await sleep(280);
+  if (t === 1) {
+    show('r0-output');
+  }
+  show(`r${t}-output`);
+  await sleep(700);
+
+  // Output overlays the noise current-frame on the input side
+  await animateCopy(`r${t}-output`, `r${t}-frame`);
+  await sleep(200);
+}
+
+// Online estimate: derive pos/track at slot t+1 from x_t (the clean current-frame at row t)
+async function onlineEstimate(t) {
+  showLbl(`lbl-est-${t}${t+1}`);
+  showArrow(`a-est-${t}-pos`);
+  showArrow(`a-est-${t}-track`);
+  await sleep(280);
+  show(`r${t+1}-pos`);
+  show(`r${t+1}-track`);
+  await sleep(450);
+}
+
+// Prepare row t's input side: show user vel and noise current-frame.
+// (pos/track are already in place from the prior onlineEstimate.)
+async function prepareRow(t) {
+  $('step-ind').textContent = `Step ${t}:  z_${t} (noise)  →  rgb_${String(t*4).padStart(2,'0')}`;
+  show(`lbl-r${t}`);
+  await sleep(150);
+
+  show(`r${t}-user-badge`);
+  await sleep(140);
+  showArrow(`a-user-${t}`);
+  await sleep(260);
+  show(`r${t}-vel`);
+  await sleep(200);
+
+  // Current-frame slot appears as NOISE (will be overlaid by output later)
+  show(`r${t}-frame`);
+  await sleep(450);
+}
+
+// Compact rows 0/1/2 upward to free row 2's original slot for row 3:
+//   row 0 stays at 140; row 2 moves to 320 (= row 1's original slot);
+//   row 1 sits at the midpoint between them: (140+320)/2 = 230.
+// Apply `history` class to whitewash (≈ 22% white over content, no transparency).
+async function compactHistory() {
+  const COMPACT_TOP = [140, 230, 320];
+  for (let t = 0; t <= 2; t++) {
+    const ty = COMPACT_TOP[t] - ROW_Y_TOP[t];
+    // Translate the row's visible content (boxes + output).
+    ['vel', 'pos', 'track', 'frame', 'output'].forEach(part => {
+      const el = $(`r${t}-${part}`);
+      if (el) {
+        el.style.transform = `translateY(${ty}px)`;
+        el.classList.add('history');
+      }
+    });
+
+    // Hide row decorations (concat / badge / row-label) — cleaner stack
+    hide(`r${t}-concat`);
+    hide(`r${t}-user-badge`);
+    hide(`lbl-r${t}`);
+    // Hide all AR arrows for this row
+    document.querySelectorAll(`[id^="a-r${t}-"]`).forEach(p => p.classList.remove('show'));
+    // Hide the purple user → vel-box arrow
+    $(`a-user-${t}`)?.classList.remove('show');
+  }
+  // Hide old online estimate arrows + labels
+  ['a-est-0-pos', 'a-est-0-track', 'a-est-1-pos', 'a-est-1-track'].forEach(id => $(id)?.classList.remove('show'));
+  hide('lbl-est-01');
+  hide('lbl-est-12');
+
+  // Rebuild a-est-2-* arrows: source = compacted row 2 frame bottom-center.
+  // Compacted row 2 frame: orig (614, 500) translateY(-180) → renders at (614..744, 320..408).
+  // Bottom-center: (679, 408). Targets: r3-pos top (395, 500), r3-track top (537, 500).
+  makeArrow('a-est-2-pos',
+    `M 679 414 C 679 440 480 480 395 494`,
+    'online', 'online');
+  makeArrow('a-est-2-track',
+    `M 679 414 C 679 440 585 480 537 494`,
+    'online', 'online');
+
+  await sleep(700); // wait for compact transition (CSS 0.6s)
+}
+
+async function runSequence() {
+  try {
+    await intro();
+
+    // Row 0: special — rgb_00.png is given (no DiT pulse, no output yet)
+    await revealRow0();
+
+    // Rows 1..2: AR steps. Row 1's DiT call also reveals Row 0's output (joint).
+    for (let t = 1; t <= 2; t++) {
+      await onlineEstimate(t - 1);
+      await prepareRow(t);
+      await processRow(t);
+    }
+
+    // Compact rows 0/1/2 into a history stack at the top, freeing space for row 3.
+    await compactHistory();
+
+    // Row 3: same flow as row 2, in the freed lower area.
+    await onlineEstimate(2);
+    await prepareRow(3);
+    await processRow(3);
+
+    // Rollout continues — show ellipsis (now positioned below row 3)
+    show('ellipsis-input');
+    show('ellipsis-output');
+    await sleep(100);
+  } catch (e) { /* sequence aborted */ }
+}
+
+function reset() {
+  document.documentElement.classList.add('resetting');
+  resetSeq++;
+  paused = true;
+  $('play-btn').textContent = '▶';
+
+  document.querySelectorAll('.box, .output-frame, .concat, .user-badge, .ellipsis-dots').forEach(el => el.classList.remove('show'));
+  document.querySelectorAll('.col-label, .row-label, .lbl').forEach(el => el.classList.remove('show'));
+  // Clear any inline compaction styles + the white-wash history class
+  document.querySelectorAll('.box, .output-frame, .concat, .user-badge, .row-label').forEach(el => {
+    el.style.transform = '';
+    el.style.opacity = '';
+    el.style.transformOrigin = '';
+    el.classList.remove('history');
+  });
+  // Remove .copied from all rgb-boxes EXCEPT r0-frame (rgb_00 is given, never noise)
+  document.querySelectorAll('.box.rgb-box').forEach(el => el.classList.remove('copied'));
+  $('r0-frame').classList.add('copied');
+  // Remove any leftover ghosts
+  document.querySelectorAll('.copy-ghost').forEach(g => g.remove());
+
+  hide('network');
+  $('network').classList.remove('pulse');
+  hideAllArrows();
+
+  $('step-ind').textContent = 'Setup';
+  // Commit a fully hidden state before starting the next fade-in.
+  void $('stage-wrap').offsetHeight;
+  document.documentElement.classList.remove('resetting');
+  void $('stage-wrap').offsetHeight;
+}
+
+// Freeze both the sequence clock and in-flight CSS transitions.
+let sequencePromise = null;
+let preview = true;
+let completed = false;
+let replaying = false;
+let frozenAnimations = [];
+function setPaused(value) {
+  if (value && preview) return;
+  if (value && paused) { publishState(); return; }
+  paused = value;
+  if (paused) {
+    frozenAnimations = document.getAnimations().filter(a => a.playState === 'running');
+    frozenAnimations.forEach(a => a.pause());
+  } else {
+    frozenAnimations.forEach(a => { if (a.playState === 'paused') a.play(); });
+    frozenAnimations = [];
+  }
+  $('play-btn').textContent = paused ? '▶' : 'Ⅱ';
+  $('play-btn').setAttribute('aria-label', paused ? 'Play pipeline animation' : 'Pause pipeline animation');
+  publishState();
+}
+function publishState() {
+  if (window.parent !== window) window.parent.postMessage({ type: 'pipeline-state', paused }, location.origin);
+}
+function startSequence() {
+  if (running) { setPaused(false); return; }
+  if (preview) { reset(); preview = false; }
+  completed = false; running = true; setPaused(false);
+  const token = resetSeq;
+  sequencePromise = runSequence().finally(() => {
+    running = false;
+    if (token === resetSeq) { completed = true; setPaused(true); }
+  });
+}
+async function replay() {
+  if (replaying) return;
+  replaying = true;
+  // Wait for the cancelled sequence before starting another one.
+  resetSeq++;
+  setPaused(true);
+  await sequencePromise;
+  frozenAnimations.forEach(a => a.cancel()); frozenAnimations = [];
+  document.getAnimations().forEach(a => a.cancel());
+  reset();
+  completed = false;
+  startSequence();
+  replaying = false;
+}
+$('play-btn').addEventListener('click', () => {
+  if (completed) replay();
+  else if (running) setPaused(!paused);
+  else startSequence();
+});
+$('restart-btn').textContent = '↺';
+$('restart-btn').addEventListener('click', replay);
+$('speed').addEventListener('input', e => {
+  speedMul = parseFloat(e.target.value);
+  $('speed-val').textContent = `${speedMul.toFixed(1)}×`;
+});
+document.addEventListener('visibilitychange', () => { if (document.hidden) setPaused(true); });
+window.addEventListener('message', e => {
+  if (e.source !== window.parent || e.origin !== location.origin) return;
+  if (e.data === 'pause-pipeline') { setPaused(true); return; }
+  if (e.data?.type !== 'pipeline-command') return;
+  if (e.data.action === 'toggle') $('play-btn').click();
+  if (e.data.action === 'restart') replay();
+  if (e.data.action === 'speed') {
+    speedMul = Math.max(.5, Math.min(1, Number(e.data.value) || 1));
+    $('speed').value = speedMul;
+    $('speed-val').textContent = `${speedMul.toFixed(1)}×`;
+  }
+  publishState();
+});
+
+function fitStage() {
+  const wrap = $('stage-wrap');
+  const STAGE_W = 1400, STAGE_H = 650;
+  const vw = window.innerWidth;
+  const vh = window.innerHeight - (document.documentElement.classList.contains('embedded') ? 0 : 85);
+  const s = Math.min(vw / STAGE_W, vh / STAGE_H, 1);
+  wrap.style.transform = `scale(${s})`;
+}
+
+buildLayers();
+buildAllArrows();
+reset();
+fitStage();
+window.addEventListener('resize', fitStage);
+// A static overview makes the diagram useful before the visitor chooses Play.
+['col-user','col-mem','col-frame','col-output','network'].forEach(show);
+for (let row = 0; row < 3; row++) {
+  show(`lbl-r${row}`);
+  for (const part of ['vel','pos','track','frame','concat','output']) show(`r${row}-${part}`);
+  $(`r${row}-frame`).classList.add('copied');
+}
+['lbl-est-01','lbl-est-12','r1-user-badge','r2-user-badge'].forEach(show);
+arrowsSvg.querySelectorAll('.arrow').forEach(path => {
+  if (!path.id.includes('r3') && path.id !== 'a-user-3' && !path.id.startsWith('a-est-2')) showArrow(path.id);
+});
+
+
+</script>
+</body>
+</html>

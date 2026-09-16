@@ -109,6 +109,16 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.publication-authors :deep(a) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.publication-authors :deep(a:hover),
+.publication-authors :deep(a:focus-visible) {
+  color: #660874;
+  text-decoration: underline;
+}
 .publication-wrapper {
   position: relative;
   margin-bottom: 30px;

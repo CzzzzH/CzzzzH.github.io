@@ -4,25 +4,23 @@ export default [
         category: 'Publications',
         title: 'PhysStream: Streaming Physics-Grounded Video Generation with Structured Scene Memory and Fine-Grained Motion Control',
         image: '/Publications/PhysStream.png',
-        authors: '<b>Chuhao Chen</b>, Peter Wonka, Chaoyang Wang, Chen Wang, Qiao Feng, Sergey Tulyakov, Lingjie Liu',
+        authors: '<a href="https://czzzzh.github.io/"><b>Chuhao Chen</b></a>, <a href="https://peterwonka.net/">Peter Wonka</a>, <a href="https://mightychaos.github.io/">Chaoyang Wang</a>, <a href="https://cwchenwang.github.io/">Chen Wang</a>, <a href="https://fengq1a0.github.io/">Qiao Feng</a>, <a href="https://stulyakov.com/">Sergey Tulyakov</a>, <a href="https://lingjie0206.github.io/">Lingjie Liu</a>',
         publisher: '<span class="highlight-pub">SIGGRAPH Asia 2026</span>',
         bgType: 'yellow', // 'yellow', 'purple', or '' for no background
         buttons: [
             {
                 icon: 'fa-solid fa-file-lines fa-2x',
                 text: 'Project Page',
-                link: '/PhysStream/index.html',
-                disabled: true
+                link: '/PhysStream/index.html'
             },
             {
                 icon: 'fa-solid fa-file-pdf fa-2x',
                 text: 'Paper',
-                link: '/PhysStream/PhysStream.pdf',
-                disabled: true
+                link: '/PhysStream/PhysStream.pdf'
             },
             {
                 icon: 'fab fa-github fa-2x',
-                text: 'Code',
+                text: 'Code (coming soon)',
                 link: 'https://github.com/CzzzzH/PhysStream',
                 disabled: true
             }

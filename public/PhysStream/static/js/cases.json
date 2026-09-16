@@ -1,0 +1,262 @@
+[
+  {
+    "id": "q00",
+    "title": "Sunlit alcove",
+    "input": "assets/comparisons/q00/input.jpg?v=6284a9645156",
+    "videos": {
+      "control": "assets/comparisons/q00/control.mp4?v=e3872b227dd1",
+      "ours": "assets/comparisons/q00/ours.mp4?v=3069cb83d94d",
+      "tora": "assets/comparisons/q00/tora.mp4?v=665613f3568f",
+      "flashmotion": "assets/comparisons/q00/flashmotion.mp4?v=bf199cff1016",
+      "dragstream": "assets/comparisons/q00/dragstream.mp4?v=c89ef395ac03",
+      "realwonder": "assets/comparisons/q00/realwonder.mp4?v=5868c23909be"
+    }
+  },
+  {
+    "id": "q02",
+    "title": "Toy car & block",
+    "input": "assets/comparisons/q02/input.jpg?v=a6622ba9b56e",
+    "videos": {
+      "control": "assets/comparisons/q02/control.mp4?v=99614d9fad2f",
+      "ours": "assets/comparisons/q02/ours.mp4?v=7b850cf1f340",
+      "tora": "assets/comparisons/q02/tora.mp4?v=d2bc02372cf1",
+      "flashmotion": "assets/comparisons/q02/flashmotion.mp4?v=26f0e1dc150a",
+      "dragstream": "assets/comparisons/q02/dragstream.mp4?v=6e6c373bc3c6",
+      "realwonder": "assets/comparisons/q02/realwonder.mp4?v=efb3e1bcf146"
+    }
+  },
+  {
+    "id": "q15",
+    "title": "Spice cabinet",
+    "input": "assets/comparisons/q15/input.jpg?v=89bcbcb47f8d",
+    "videos": {
+      "control": "assets/comparisons/q15/control.mp4?v=adb738fe1ee1",
+      "ours": "assets/comparisons/q15/ours.mp4?v=0c97a7d4a148",
+      "tora": "assets/comparisons/q15/tora.mp4?v=83e26d38cfd5",
+      "flashmotion": "assets/comparisons/q15/flashmotion.mp4?v=fa3a9ed164d5",
+      "dragstream": "assets/comparisons/q15/dragstream.mp4?v=e4da0e64c76c",
+      "realwonder": "assets/comparisons/q15/realwonder.mp4?v=0ed9cf344c3a"
+    }
+  },
+  {
+    "id": "q19",
+    "title": "Pottery & brushes",
+    "input": "assets/comparisons/q19/input.jpg?v=eab5db76642c",
+    "videos": {
+      "control": "assets/comparisons/q19/control.mp4?v=87cfef5c03b4",
+      "ours": "assets/comparisons/q19/ours.mp4?v=161505a1cc09",
+      "tora": "assets/comparisons/q19/tora.mp4?v=9c46f5dfc0b7",
+      "flashmotion": "assets/comparisons/q19/flashmotion.mp4?v=3785e95deb8b",
+      "dragstream": "assets/comparisons/q19/dragstream.mp4?v=e6fecbb3564f",
+      "realwonder": "assets/comparisons/q19/realwonder.mp4?v=1479d14a7a39"
+    }
+  },
+  {
+    "id": "q09",
+    "title": "Market stall",
+    "input": "assets/comparisons/q09/input.jpg?v=586d68cdd0da",
+    "videos": {
+      "control": "assets/comparisons/q09/control.mp4?v=81df2b0bf8a0",
+      "ours": "assets/comparisons/q09/ours.mp4?v=3dba352fa749",
+      "tora": "assets/comparisons/q09/tora.mp4?v=875c9753123d",
+      "flashmotion": "assets/comparisons/q09/flashmotion.mp4?v=48f4c8a96b02",
+      "dragstream": "assets/comparisons/q09/dragstream.mp4?v=f0326c75eb2d",
+      "realwonder": "assets/comparisons/q09/realwonder.mp4?v=828d48dacd48"
+    }
+  },
+  {
+    "id": "q01",
+    "title": "Garden tools",
+    "input": "assets/comparisons/q01/input.jpg?v=bcfb9153935a",
+    "videos": {
+      "control": "assets/comparisons/q01/control.mp4?v=b2abec5c9a16",
+      "ours": "assets/comparisons/q01/ours.mp4?v=662f8f2c850c",
+      "tora": "assets/comparisons/q01/tora.mp4?v=385341200544",
+      "flashmotion": "assets/comparisons/q01/flashmotion.mp4?v=8641098c5a43",
+      "dragstream": "assets/comparisons/q01/dragstream.mp4?v=735b211307f4",
+      "realwonder": "assets/comparisons/q01/realwonder.mp4?v=52b921391f32"
+    }
+  },
+  {
+    "id": "q03",
+    "title": "Tea & books",
+    "input": "assets/comparisons/q03/input.jpg?v=7532f575a1a3",
+    "videos": {
+      "control": "assets/comparisons/q03/control.mp4?v=52cf14aef861",
+      "ours": "assets/comparisons/q03/ours.mp4?v=e649d12d4641",
+      "tora": "assets/comparisons/q03/tora.mp4?v=f53b85248efa",
+      "flashmotion": "assets/comparisons/q03/flashmotion.mp4?v=9fd4f53c63eb",
+      "dragstream": "assets/comparisons/q03/dragstream.mp4?v=da6c1be112c3",
+      "realwonder": "assets/comparisons/q03/realwonder.mp4?v=a19355fd231d"
+    }
+  },
+  {
+    "id": "q04",
+    "title": "Ceramic still life",
+    "input": "assets/comparisons/q04/input.jpg?v=92131b838753",
+    "videos": {
+      "control": "assets/comparisons/q04/control.mp4?v=49280de2ceb3",
+      "ours": "assets/comparisons/q04/ours.mp4?v=23e923cf9db5",
+      "tora": "assets/comparisons/q04/tora.mp4?v=43609c6363ae",
+      "flashmotion": "assets/comparisons/q04/flashmotion.mp4?v=6ca78240d635",
+      "dragstream": "assets/comparisons/q04/dragstream.mp4?v=6ca7843de00c",
+      "realwonder": "assets/comparisons/q04/realwonder.mp4?v=31b2732b5a26"
+    }
+  },
+  {
+    "id": "q05",
+    "title": "By the water",
+    "input": "assets/comparisons/q05/input.jpg?v=573cbd9aa2bd",
+    "videos": {
+      "control": "assets/comparisons/q05/control.mp4?v=58d7daaf6132",
+      "ours": "assets/comparisons/q05/ours.mp4?v=1a071c33b983",
+      "tora": "assets/comparisons/q05/tora.mp4?v=40fb3cf0ae21",
+      "flashmotion": "assets/comparisons/q05/flashmotion.mp4?v=03a92356e4ad",
+      "dragstream": "assets/comparisons/q05/dragstream.mp4?v=2ebca72c90d7",
+      "realwonder": "assets/comparisons/q05/realwonder.mp4?v=f4f8061506b5"
+    }
+  },
+  {
+    "id": "q06",
+    "title": "Mug & lantern",
+    "input": "assets/comparisons/q06/input.jpg?v=460000d27f93",
+    "videos": {
+      "control": "assets/comparisons/q06/control.mp4?v=9f25b124bf07",
+      "ours": "assets/comparisons/q06/ours.mp4?v=85447345d2ea",
+      "tora": "assets/comparisons/q06/tora.mp4?v=67113a019754",
+      "flashmotion": "assets/comparisons/q06/flashmotion.mp4?v=4099dcfa9668",
+      "dragstream": "assets/comparisons/q06/dragstream.mp4?v=fdf0392eca1e",
+      "realwonder": "assets/comparisons/q06/realwonder.mp4?v=4ec78c35a3eb"
+    }
+  },
+  {
+    "id": "q07",
+    "title": "Rustic kitchen",
+    "input": "assets/comparisons/q07/input.jpg?v=b65cdb92b285",
+    "videos": {
+      "control": "assets/comparisons/q07/control.mp4?v=fa43913a68ec",
+      "ours": "assets/comparisons/q07/ours.mp4?v=2f49d2a8e615",
+      "tora": "assets/comparisons/q07/tora.mp4?v=88a449854265",
+      "flashmotion": "assets/comparisons/q07/flashmotion.mp4?v=b7c71ae42f65",
+      "dragstream": "assets/comparisons/q07/dragstream.mp4?v=03590a86b97d",
+      "realwonder": "assets/comparisons/q07/realwonder.mp4?v=9ca00cc7359c"
+    }
+  },
+  {
+    "id": "q08",
+    "title": "Checkered table",
+    "input": "assets/comparisons/q08/input.jpg?v=6896ee92b952",
+    "videos": {
+      "control": "assets/comparisons/q08/control.mp4?v=98264baa23b5",
+      "ours": "assets/comparisons/q08/ours.mp4?v=eedc9e75a07f",
+      "tora": "assets/comparisons/q08/tora.mp4?v=9ecd4fa76025",
+      "flashmotion": "assets/comparisons/q08/flashmotion.mp4?v=1482ed8e4d39",
+      "dragstream": "assets/comparisons/q08/dragstream.mp4?v=338a9f3cb601",
+      "realwonder": "assets/comparisons/q08/realwonder.mp4?v=a87034993b3a"
+    }
+  },
+  {
+    "id": "q10",
+    "title": "Spice table",
+    "input": "assets/comparisons/q10/input.jpg?v=ee9244204053",
+    "videos": {
+      "control": "assets/comparisons/q10/control.mp4?v=bc418886d296",
+      "ours": "assets/comparisons/q10/ours.mp4?v=5e70be1958b1",
+      "tora": "assets/comparisons/q10/tora.mp4?v=c61142fbeb8d",
+      "flashmotion": "assets/comparisons/q10/flashmotion.mp4?v=ce95fb3cabd9",
+      "dragstream": "assets/comparisons/q10/dragstream.mp4?v=187e24008b9f",
+      "realwonder": "assets/comparisons/q10/realwonder.mp4?v=5908709896ef"
+    }
+  },
+  {
+    "id": "q11",
+    "title": "Afternoon tea",
+    "input": "assets/comparisons/q11/input.jpg?v=4740295712cf",
+    "videos": {
+      "control": "assets/comparisons/q11/control.mp4?v=560072c49562",
+      "ours": "assets/comparisons/q11/ours.mp4?v=2010bd66a189",
+      "tora": "assets/comparisons/q11/tora.mp4?v=a9dcdaefff17",
+      "flashmotion": "assets/comparisons/q11/flashmotion.mp4?v=817610d82b99",
+      "dragstream": "assets/comparisons/q11/dragstream.mp4?v=4c754674a0e8",
+      "realwonder": "assets/comparisons/q11/realwonder.mp4?v=63296237e75b"
+    }
+  },
+  {
+    "id": "q12",
+    "title": "Terracotta & garden",
+    "input": "assets/comparisons/q12/input.jpg?v=9875f7fb4f9c",
+    "videos": {
+      "control": "assets/comparisons/q12/control.mp4?v=f1a61040a95e",
+      "ours": "assets/comparisons/q12/ours.mp4?v=8122e01077d1",
+      "tora": "assets/comparisons/q12/tora.mp4?v=fb7bed1f3c44",
+      "flashmotion": "assets/comparisons/q12/flashmotion.mp4?v=d1dc15685340",
+      "dragstream": "assets/comparisons/q12/dragstream.mp4?v=3523f8c80250",
+      "realwonder": "assets/comparisons/q12/realwonder.mp4?v=1e0f3392669d"
+    }
+  },
+  {
+    "id": "q13",
+    "title": "Colorful cups",
+    "input": "assets/comparisons/q13/input.jpg?v=f51611379a64",
+    "videos": {
+      "control": "assets/comparisons/q13/control.mp4?v=ac6b0a3b0ba2",
+      "ours": "assets/comparisons/q13/ours.mp4?v=a839ab033b4b",
+      "tora": "assets/comparisons/q13/tora.mp4?v=aa51f38a1fe4",
+      "flashmotion": "assets/comparisons/q13/flashmotion.mp4?v=4b327b3237c8",
+      "dragstream": "assets/comparisons/q13/dragstream.mp4?v=ffc7881e4cc3",
+      "realwonder": "assets/comparisons/q13/realwonder.mp4?v=33f4c1c9e65b"
+    }
+  },
+  {
+    "id": "q14",
+    "title": "Courtyard tea",
+    "input": "assets/comparisons/q14/input.jpg?v=cee59fd2c266",
+    "videos": {
+      "control": "assets/comparisons/q14/control.mp4?v=8fe3e9e8748c",
+      "ours": "assets/comparisons/q14/ours.mp4?v=75c40cbdaca1",
+      "tora": "assets/comparisons/q14/tora.mp4?v=01cf2eeef7db",
+      "flashmotion": "assets/comparisons/q14/flashmotion.mp4?v=c13cfc52ef24",
+      "dragstream": "assets/comparisons/q14/dragstream.mp4?v=891654922381",
+      "realwonder": "assets/comparisons/q14/realwonder.mp4?v=ba283e94c317"
+    }
+  },
+  {
+    "id": "q16",
+    "title": "Jars & chocolate",
+    "input": "assets/comparisons/q16/input.jpg?v=9f1e7555f34a",
+    "videos": {
+      "control": "assets/comparisons/q16/control.mp4?v=66acc250582e",
+      "ours": "assets/comparisons/q16/ours.mp4?v=16b31abc830d",
+      "tora": "assets/comparisons/q16/tora.mp4?v=45ee0851a426",
+      "flashmotion": "assets/comparisons/q16/flashmotion.mp4?v=c95ee1989047",
+      "dragstream": "assets/comparisons/q16/dragstream.mp4?v=9ff65b9879c5",
+      "realwonder": "assets/comparisons/q16/realwonder.mp4?v=eafd6c042a12"
+    }
+  },
+  {
+    "id": "q17",
+    "title": "Blue teapot",
+    "input": "assets/comparisons/q17/input.jpg?v=e47cd8fda44b",
+    "videos": {
+      "control": "assets/comparisons/q17/control.mp4?v=290a362321c6",
+      "ours": "assets/comparisons/q17/ours.mp4?v=a9886ee4002a",
+      "tora": "assets/comparisons/q17/tora.mp4?v=9809c40de9c7",
+      "flashmotion": "assets/comparisons/q17/flashmotion.mp4?v=83a2ce27d6ab",
+      "dragstream": "assets/comparisons/q17/dragstream.mp4?v=d4f4c46831e1",
+      "realwonder": "assets/comparisons/q17/realwonder.mp4?v=296679087da1"
+    }
+  },
+  {
+    "id": "q18",
+    "title": "Kitchen ingredients",
+    "input": "assets/comparisons/q18/input.jpg?v=78702feba2b6",
+    "videos": {
+      "control": "assets/comparisons/q18/control.mp4?v=a8a09defeae4",
+      "ours": "assets/comparisons/q18/ours.mp4?v=0762b73c72f7",
+      "tora": "assets/comparisons/q18/tora.mp4?v=31a6dd1a9c6e",
+      "flashmotion": "assets/comparisons/q18/flashmotion.mp4?v=25b0a4eefc49",
+      "dragstream": "assets/comparisons/q18/dragstream.mp4?v=a91242c262ec",
+      "realwonder": "assets/comparisons/q18/realwonder.mp4?v=4479c674440b"
+    }
+  }
+]

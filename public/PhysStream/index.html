@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PhysStream: physics-grounded streaming video generation from a single image, with sparse velocity control and structured scene memory. SIGGRAPH Asia 2026.">
+  <meta property="og:title" content="PhysStream | SIGGRAPH Asia 2026">
+  <meta property="og:description" content="Starting from one image, PhysStream generates video step by step, letting users drag objects to guide their motion at any point during generation.">
+  <meta property="og:image" content="https://czzzzh.github.io/PhysStream/assets/teaser.png">
+  <title>PhysStream: Streaming Physics-Grounded Video Generation with Structured Scene Memory and Fine-Grained Motion Control</title>
+  <link rel="icon" href="../tab.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/physstream.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script type="module" src="static/js/physstream.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#abstract">Skip to content</a>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container hero-container has-text-centered">
+        <h1 class="title is-1 publication-title">PhysStream: Streaming Physics-Grounded Video Generation<br class="desktop-break"> with Structured Scene Memory and Fine-Grained Motion Control</h1>
+        <div class="is-size-4 publication-authors">
+          <span class="author-block"><a href="https://czzzzh.github.io/">Chuhao Chen</a><sup>1</sup>,</span>
+          <span class="author-block"><a href="https://peterwonka.net/">Peter Wonka</a><sup>2,3</sup>,</span>
+          <span class="author-block"><a href="https://mightychaos.github.io/">Chaoyang Wang</a><sup>2</sup>,</span>
+          <span class="author-block"><a href="https://cwchenwang.github.io/">Chen Wang</a><sup>1</sup>,</span>
+          <span class="author-block"><a href="https://fengq1a0.github.io/">Qiao Feng</a><sup>1</sup>,</span>
+          <span class="author-block"><a href="https://stulyakov.com/">Sergey Tulyakov</a><sup>2</sup>,</span>
+          <span class="author-block"><a href="https://lingjie0206.github.io/">Lingjie Liu</a><sup>1</sup></span>
+        </div>
+        <div class="is-size-5 publication-authors affiliations">
+          <span class="author-block"><sup>1</sup>University of Pennsylvania</span>
+          <span class="author-block"><sup>2</sup>Snap Inc.</span>
+          <span class="author-block"><sup>3</sup>KAUST</span>
+        </div>
+        <h2 class="subtitle is-4 venue"><b>SIGGRAPH Asia 2026</b></h2>
+        <div class="publication-links">
+          <a href="https://arxiv.org/abs/2609.17521" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="ai ai-arxiv" aria-hidden="true"></i></span><span>arXiv</span></a>
+          <a href="PhysStream.pdf" class="button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></span><span>Paper</span></a>
+          <button type="button" class="button is-normal is-rounded is-dark" disabled><span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span><span>Code (coming soon)</span></button>
+          <button type="button" class="button is-normal is-rounded is-dark" disabled><span class="icon"><i class="fas fa-database" aria-hidden="true"></i></span><span>Datasets &amp; Results (coming soon)</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <img src="assets/teaser.png" width="1273" height="640" alt="PhysStream steers a dish into vases, an origami frog across stumps, and objects across a market stall using initial and mid-generation interactions.">
+        <p class="teaser-caption">Starting from one image, <b>PhysStream</b> generates video step by step, letting users drag objects to guide their motion at any point during generation.</p>
+      </div>
+    </section>
+
+    <section class="section" id="abstract">
+      <div class="container is-max-desktop">
+        <h2 class="title has-text-centered is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>Interactive control for video generation is moving from coarse prompts toward fine-grained, physically meaningful manipulation of dynamic scenes. Yet existing controllable methods either require the full control schedule before generation starts, or use pixel-space signals that dictate object positions rather than physical dynamics. To address these limitations, we propose <b>PhysStream</b>, an autoregressive model for physics-grounded image-to-video synthesis that incorporates structured scene memory—positional maps and object tracking maps derived online from previously generated frames—and supports fine-grained motion control via sparse velocity-increment signals that encode physical quantities, letting the model learn the underlying dynamics. We train our model in two stages: a bidirectional model is first finetuned with motion-control conditioning, then a causal autoregressive model is trained with additional structured scene memory, further improving physical consistency. PhysStream enables interactive, mid-generation control over multi-object tabletop rigid-body scenes—a capability not supported by prior methods—reducing motion distribution distance (FVMD) by 33% and trajectory error by 12% over the strongest baselines on synthetic benchmarks, and is preferred by human evaluators in over 85% of in-the-wild comparisons.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="method">
+      <div class="container is-max-desktop">
+        <h2 class="title has-text-centered is-3">Method Overview</h2>
+        <div class="pipeline-shell">
+          <div class="pipeline-canvas"><iframe src="pipeline.html?embed" title="Animated PhysStream autoregressive inference pipeline" loading="lazy"></iframe></div>
+          <div class="pipeline-toolbar-scroll">
+            <div class="viewer-controls pipeline-controls">
+              <div class="transport-buttons">
+                <button type="button" class="playback-button primary" id="pipeline-play" aria-label="Play pipeline animation" title="Play / pause"></button>
+                <button type="button" class="playback-button" id="pipeline-restart" aria-label="Restart pipeline animation" title="Restart"></button>
+              </div>
+              <p class="figure-caption">At each step, the causal video model uses the <strong>user’s velocity increment</strong> and <strong>historical scene memory</strong> to generate the next latent frame. Position and object-tracking maps are estimated from the new output and <strong>fed back into the next step</strong>.</p>
+              <div class="pipeline-speed-slot"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="control">
+      <div class="container is-max-desktop">
+        <h2 class="title has-text-centered is-3">Flexible Interactive Control</h2>
+        <div class="case-viewer" id="control-viewer" role="region" aria-label="Interactive control examples" tabindex="0"></div>
+      </div>
+    </section>
+
+    <section class="section" id="comparisons">
+      <div class="container is-max-desktop">
+        <h2 class="title has-text-centered is-3">In-the-wild Comparison</h2>
+        <div class="case-viewer" id="comparison-viewer" role="region" aria-label="In-the-wild baseline comparisons" tabindex="0"><p class="loading-message">Loading comparisons…</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="long-video">
+      <div class="container is-max-desktop">
+        <h2 class="title has-text-centered is-3">Long Video Generation</h2>
+        <div class="case-viewer" id="long-viewer" role="region" aria-label="Long-horizon generation examples" tabindex="0"></div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title is-3">BibTeX</h2>
+        <pre><code>@inproceedings{chen2026physstream,
+  title = {PhysStream: Streaming Physics-Grounded Video Generation with
+           Structured Scene Memory and Fine-Grained Motion Control},
+  author = {Chen, Chuhao and Wonka, Peter and Wang, Chaoyang and
+            Wang, Chen and Feng, Qiao and Tulyakov, Sergey and Liu, Lingjie},
+  booktitle = {SIGGRAPH Asia 2026 Conference Papers},
+  year = {2026},
+  doi = {10.1145/3829340.3842176}
+}</code></pre>
+      </div>
+    </section>
+    <noscript><p class="container is-max-desktop">Enable JavaScript to explore the interactive results.</p></noscript>
+  </main>
+  <footer class="footer">
+    <div class="container content has-text-centered">The website template is sourced from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.</div>
+  </footer>
+</body>
+</html>
