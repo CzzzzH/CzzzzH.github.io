@@ -1,5 +1,19 @@
 # cch-homepage
 
+## Visitor statistics
+
+The homepage uses GoatCounter without a visible counter or map. Dashboard: https://czzzzh.goatcounter.com/.
+
+The endpoint is configured in `.env.production` and included in production builds. To change the account:
+
+1. Register at https://www.goatcounter.com/signup with site domain `czzzzh.github.io`.
+2. Set `VITE_GOATCOUNTER_ENDPOINT` in `.env.production` to the endpoint shown in the account settings, such as `https://YOUR_ACCOUNT.goatcounter.com/count`.
+3. Rebuild and deploy. This public endpoint can be committed; do not put a password or API key here.
+
+Tracking is disabled while the endpoint is empty, during development, and on local previews. Only production builds served on `czzzzh.github.io` are counted.
+
+Historical ClustrMaps/MapMyVisitors statistics remain at https://mapmyvisitors.com/web/1c57p and are not automatically imported into GoatCounter.
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup

@@ -206,8 +206,6 @@
             />
             <Gallery />
           </div>
-          <!-- ClustrMaps widget (hidden but script still loads for tracking) -->
-          <div ref="clustrMapContainer" class="clustrmaps-hidden"></div>
         </div>
       </el-main>
     </el-container>
@@ -221,7 +219,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, computed } from 'vue'
+import { defineComponent, computed } from 'vue'
 import ProjectCard from './components/ProjectCard.vue'
 import Publication from './components/Publication.vue'
 import SectionTitle from './components/SectionTitle.vue'
@@ -250,24 +248,10 @@ export default defineComponent({
 }) => project.category_id))];
     const pubs = computed(() => {return publications;});
 
-    const clustrMapContainer = ref<HTMLDivElement | null>(null)
-    onMounted(() => {
-      const script = document.createElement('script')
-      script.type = 'text/javascript'
-      script.id = 'clustrmaps'
-      script.src = '//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=THVTe2YB5KOZKR5GWWlFYej4NecUmnTKFe_CjsTVzLI&co=2d78ad&cmo=9b00ff&cmn=ff5353&ct=ffffff'
-
-      // Append to body or specific container
-      if (clustrMapContainer.value) {
-        clustrMapContainer.value.appendChild(script)
-      }
-    })
-
     return {    
       categories,
       category_id,
       pubs,
-      clustrMapContainer,
     };
   }
 
@@ -342,17 +326,6 @@ export default defineComponent({
   font-size: 18px;
   font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 400;
-}
-
-/* Hide ClustrMaps widget but keep script for tracking */
-.clustrmaps-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
 
 .container {
